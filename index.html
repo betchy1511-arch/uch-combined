@@ -2439,6 +2439,27 @@ img{display:block;max-width:100%}
 /* About reviews: the rating is a badge, not a button, so only the Order button stays solid gold */
 .v-cb .cb-arevs .cb-rfoot{background:transparent;color:var(--cream);box-shadow:inset 0 0 0 1px rgba(223,174,66,.6)}
 .v-cb .cb-arevs .cb-rfoot .cb-st{color:var(--gold)}
+
+/* ---- V5 COMBINED, Contact view ---- */
+.v-cb .cb-cfind{background:var(--cr)}
+.v-cb .cb-bold{position:relative;z-index:4;overflow:hidden;background:var(--ink);color:var(--cream);padding:84px 42px 90px;text-align:center}
+.v-cb .cb-bold .cb-h2{font-size:clamp(34px,5.4vw,74px)}
+.v-cb .cb-faq{position:relative;z-index:4;background:var(--cr2);color:var(--ink);padding:78px 42px 86px;text-align:center}
+.v-cb .cb-faq .cb-h2{color:var(--ink)}
+.v-cb .cb-faq .cb-h2 em,.v-cb .cb-faq .bc-eyebrow{color:var(--gold-tx)}
+.v-cb .cb-faq .bc-eyebrow::before,.v-cb .cb-faq .bc-eyebrow::after{background:rgba(125,90,15,.45)}
+.v-cb .cb-faqlist{max-width:820px;margin:40px auto 0;text-align:left;display:grid;gap:12px}
+.v-cb .cb-q{background:#fff;border:1px solid rgba(20,18,15,.12);border-radius:16px;box-shadow:0 14px 26px -22px rgba(20,18,15,.6)}
+.v-cb .cb-q summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 22px;min-height:24px;font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:clamp(17px,1.6vw,20px);line-height:1.3;color:var(--ink)}
+.v-cb .cb-q summary::-webkit-details-marker{display:none}
+.v-cb .cb-q summary i{position:relative;flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--gold)}
+.v-cb .cb-q summary i::before,.v-cb .cb-q summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;background:var(--ink);transition:transform 200ms}
+.v-cb .cb-q summary i::after{transform:rotate(90deg)}
+.v-cb .cb-q[open] summary i::after{transform:rotate(0deg)}
+.v-cb .cb-q p{margin:0;padding:0 22px 20px;font-size:15px;line-height:1.7;color:var(--ink-mute)}
+@media (max-width:980px){
+.v-cb .cb-bold,.v-cb .cb-faq{padding:56px 20px 62px}
+}
 /* ---- V5 COMBINED, About view ---- */
 .v-cb .cb-afull{min-height:0}
 .v-cb .cb-afull .bg img{object-position:center 40%}
@@ -2498,7 +2519,7 @@ img{display:block;max-width:100%}
 .v-cb .cb-arevs .bc-eyebrow::before,.v-cb .cb-arevs .bc-eyebrow::after{background:rgba(223,174,66,.55)}
 
 @media (max-width:980px){
-.v-cb .cb-amid{padding-top:36px;padding-bottom:84px}
+.v-cb .cb-amid{padding-top:36px;padding-bottom:132px}
 .v-cb .cb-story,.v-cb .cb-owner{padding:52px 20px 60px}
 .v-cb .cb-bwhy{padding:52px 20px 60px}
 .v-cb .cb-story-grid,.v-cb .cb-owner-grid{grid-template-columns:1fr;gap:34px}
@@ -4311,7 +4332,7 @@ function renderCombo() {
 
       <header class="shell-top">
         <div class="brand"><img src="${IMG.logo}" alt="Under Construction Hot Dogs"></div>
-        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home" aria-current="page">Home</a><a href="?p=menu" data-goto=":menu">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="#reviews">Reviews</a><a href="#find-us">Find Us</a></nav>
+        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home" aria-current="page">Home</a><a href="?p=menu" data-goto=":menu">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="#reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact">Contact</a></nav>
         <div class="top-r">
           <span class="pickup-chip">${ICON_PIN}<span><b>Pickup</b> out front of Lowe&#8217;s, U.S. 50</span></span>
           <a class="btn-solid btn-sm" href="https://underconstructionhotdogs.com/order/" target="_blank" rel="noopener">Order for Pickup</a>
@@ -4507,7 +4528,7 @@ function renderComboAbout() {
       <div class="bg" aria-hidden="true"><img src="${IMG.cart}" alt=""></div>
       <header class="shell-top">
         <div class="brand"><img src="${IMG.logo}" alt="Under Construction Hot Dogs"></div>
-        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu">Menu</a><a href="${ABOUT_HREF}" data-goto=":about" aria-current="page">About</a><a href="#reviews">Reviews</a><a href="#find-us">Find Us</a></nav>
+        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu">Menu</a><a href="${ABOUT_HREF}" data-goto=":about" aria-current="page">About</a><a href="#reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact">Contact</a></nav>
         <div class="top-r">
           <span class="pickup-chip">${ICON_PIN}<span><b>Pickup</b> out front of Lowe&#8217;s, U.S. 50</span></span>
           <a class="btn-solid btn-sm" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup</a>
@@ -4625,6 +4646,109 @@ function renderComboAbout() {
   </div>`;
 }
 
+
+/* V5 COMBINED, Contact view. Copy is the client's own /contact/ page. The live page
+   lists no phone, email or form, so none is shown here. */
+const CONTACT_HREF = '?p=contact';
+const CB_FAQ = [
+  ['Where are you located?', 'We&#8217;re set up right outside Lowe&#8217;s in Pueblo on Hwy 50. The map and hours are right on this page.'],
+  ['What makes your hot dogs different?', 'We use premium all-beef dogs, fresh toppings, and build every order to spec. No pre-made builds sitting around. Everything is stacked fresh and served hot.'],
+  ['What payment methods do you accept?', 'We accept cash, major credit cards, and contactless payments for fast checkout.'],
+  ['Can I customize my hot dog?', 'Absolutely. You can build it your way with available toppings. If you like it stacked high, we&#8217;ve got you covered.'],
+  ['Do you serve large groups quickly?', 'Yes. We&#8217;re built for speed. Whether it&#8217;s a lunch rush or a crew break, we keep lines moving without cutting corners.']
+];
+function renderComboContact() {
+  return `
+  <div class="stage-wrap v-rc v-cb">
+    <div class="fullbleed cb-afull">
+      <div class="bg" aria-hidden="true"><img src="${IMG.cart}" alt=""></div>
+      <header class="shell-top">
+        <div class="brand"><img src="${IMG.logo}" alt="Under Construction Hot Dogs"></div>
+        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="${HOME_HREF}#reviews" data-goto=":home#reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact" aria-current="page">Contact</a></nav>
+        <div class="top-r">
+          <span class="pickup-chip">${ICON_PIN}<span><b>Pickup</b> out front of Lowe&#8217;s, U.S. 50</span></span>
+          <a class="btn-solid btn-sm" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup</a>
+        </div>
+      </header>
+      <div class="rule" aria-hidden="true"></div>
+      <div class="stage-mid cb-amid">
+        <span class="rc-brandline"><img src="${IMG.hat}" alt="" aria-hidden="true">Contact</span>
+        <h1 class="hero-h1">Come Grab a <b>Bite</b></h1>
+        <p class="cb-alede">${ABOUT.find}</p>
+        ${heroRating('rc-rate')}
+        <div class="hero-cta rc-secondary">
+          <a href="${ORDER_URL}" target="_blank" rel="noopener" class="btn-solid" data-primary-order>Order for Pickup ${ARROW}</a>
+          <a href="${MAP_LINK}" target="_blank" rel="noopener" class="btn-ghost">Get Directions</a>
+        </div>
+        ${pickupNote('rc-note')}
+      </div>
+      <div class="rc-foot-band">
+        <img class="rc-mascot" src="${IMG.mascot}" alt="The Under Construction Hot Dogs mascot, a hot dog in a hard hat giving a thumbs up">
+        <div class="rc-hazard" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <div class="cb-marq" aria-hidden="true"><div class="cb-track"><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span></div></div>
+
+    <section class="cb-find cb-cfind" id="find-us">
+      <div class="cb-fgrid">
+        <div class="cb-ftext">
+          <div class="bc-eyebrow">Get directions</div>
+          <h2 class="cb-h2">Find the <em>Cart</em></h2>
+          <p class="cb-flede">Out front of Lowe&#8217;s Home Improvement on U.S. 50. Order online and pick it up at the cart.</p>
+          <dl class="fu-facts">${fuFacts(false)}</dl>
+          <div class="cb-fctas">
+            <a class="btn-solid" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup ${ARROW}</a>
+            <a class="btn-ghost" href="${MAP_LINK}" target="_blank" rel="noopener">Get Directions ${ARROW}</a>
+          </div>
+        </div>
+        <div class="cb-mapwrap">
+          <div class="cb-map">${fuMap()}</div>
+          <img class="cb-barrier" src="${IMG.barrier}" alt="" aria-hidden="true">
+        </div>
+      </div>
+    </section>
+
+    <section class="cb-bold">
+      <img class="cb-prop m1" src="${IMG.cone}" alt="" aria-hidden="true">
+      <img class="cb-prop m2" src="${IMG.hammer}" alt="" aria-hidden="true">
+      <div class="bc-eyebrow">Our menu</div>
+      <h2 class="cb-h2">Built Bold. <em>Not Basic.</em></h2>
+      <p class="cb-bintro">${MENU.tag}</p>
+      <div class="cb-arow cb-arow-c">
+        <a class="btn-solid" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup ${ARROW}</a>
+        <a class="btn-ghost" href="?p=menu" data-goto=":menu">View Menu ${ARROW}</a>
+      </div>
+    </section>
+
+    <section class="cb-faq" id="faq">
+      <div class="bc-eyebrow">FAQs</div>
+      <h2 class="cb-h2">Frequently Asked <em>Questions</em></h2>
+      <div class="cb-faqlist">
+        ${CB_FAQ.map((f, i) => `
+        <details class="cb-q"${i === 0 ? ' open' : ''}>
+          <summary><span>${f[0]}</span><i aria-hidden="true"></i></summary>
+          <p>${f[1]}</p>
+        </details>`).join('')}
+      </div>
+      <div class="cb-arow cb-arow-c"><a class="btn-solid" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup ${ARROW}</a></div>
+    </section>
+
+    <footer class="shell-foot" id="find">
+      <div>
+        <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-bottom:6px">Hours</div>
+        ${hoursGrid()}
+      </div>
+      <div style="letter-spacing:.12em;text-transform:uppercase;font-size:11px;color:#f7f3ea">1225 W U.S. Hwy 50</div>
+      <div style="text-align:right">
+        <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-bottom:6px">Out front at Lowe's</div>
+        <a class="foot-dir" href="${MAP_LINK}" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+    </footer>
+    ${stickyOrder()}
+  </div>`;
+}
+
 const VARIANTS = [renderCombo];
 /* Combined menu view: The Cart's menu page with the Combined gold order buttons. */
 function renderComboMenu() {
@@ -4632,7 +4756,7 @@ function renderComboMenu() {
   const nav = `<div class="cb-mbar">
       <header class="shell-top">
         <div class="brand"><img src="${IMG.logo}" alt="Under Construction Hot Dogs"></div>
-        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu" aria-current="page">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="${HOME_HREF}#reviews" data-goto=":home#reviews">Reviews</a><a href="${HOME_HREF}#find-us" data-goto=":home#find-us">Find Us</a></nav>
+        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu" aria-current="page">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="${HOME_HREF}#reviews" data-goto=":home#reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact">Contact</a></nav>
         <div class="top-r">
           <span class="pickup-chip">${ICON_PIN}<span><b>Pickup</b> out front of Lowe&#8217;s, U.S. 50</span></span>
           <a class="btn-solid btn-sm" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup</a>
@@ -4647,6 +4771,8 @@ function renderComboMenu() {
 }
 const MENU_VARIANTS = [renderComboMenu];
 const ABOUT_VARIANTS = [renderComboAbout];
+/* Only Combined has a contact view; the four originals show their home. */
+const CONTACT_VARIANTS = [renderComboContact];
 let currentView = 'home';
 const stage = document.getElementById('stage');
 const picker = document.querySelector('.proto-picker');
@@ -4893,7 +5019,8 @@ function show(i, push, view) {
   if (typeof view === 'string') currentView = view;
   else if (prev !== current) currentView = 'home';
   const list = currentView === 'menu' ? MENU_VARIANTS
-    : currentView === 'about' ? ABOUT_VARIANTS : VARIANTS;
+    : currentView === 'about' ? ABOUT_VARIANTS
+    : currentView === 'contact' ? CONTACT_VARIANTS : VARIANTS;
   stage.innerHTML = list[current]();
   items.forEach((b, n) => {
     if (n === current) { b.setAttribute('data-active', ''); b.setAttribute('aria-current', 'true'); }
@@ -4904,7 +5031,7 @@ function show(i, push, view) {
   if (push !== false) {
     const u = new URL(location.href);
     u.searchParams.delete('v');
-    if (currentView === 'menu' || currentView === 'about') u.searchParams.set('p', currentView);
+    if (currentView === 'menu' || currentView === 'about' || currentView === 'contact') u.searchParams.set('p', currentView);
     else u.searchParams.delete('p');
     history.replaceState(null, '', u);
   }
@@ -4947,7 +5074,7 @@ window.addEventListener('resize', moveHighlight);
 const _bootURL = new URL(location.href);
 const start = parseInt(_bootURL.searchParams.get('v') || '1', 10) - 1;
 const _bootP = _bootURL.searchParams.get('p');
-const startView = (_bootP === 'menu' || _bootP === 'about') ? _bootP : 'home';
+const startView = (_bootP === 'menu' || _bootP === 'about' || _bootP === 'contact') ? _bootP : 'home';
 show(Number.isFinite(start) ? start : 0, false, startView);
 requestAnimationFrame(() => picker.setAttribute('data-ready', ''));
 
