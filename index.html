@@ -2460,6 +2460,60 @@ img{display:block;max-width:100%}
 @media (max-width:980px){
 .v-cb .cb-bold,.v-cb .cb-faq{padding:56px 20px 62px}
 }
+
+/* Six nav items wrap on small phones; Reviews is a home-page anchor, so it drops there only */
+@media (max-width:460px){.v-cb .top-mid a[href$="#reviews"]{display:none}}
+/* ---- V5 COMBINED, Blog ---- */
+.v-cb .cb-blogidx{position:relative;z-index:4;background:var(--cr);color:var(--ink);padding:78px 42px 86px;text-align:center}
+.v-cb .cb-blogidx .cb-h2{color:var(--ink)}
+.v-cb .cb-blogidx .cb-h2 em,.v-cb .cb-blogidx .bc-eyebrow{color:var(--gold-tx)}
+.v-cb .cb-blogidx .bc-eyebrow::before,.v-cb .cb-blogidx .bc-eyebrow::after{background:rgba(125,90,15,.45)}
+.v-cb .cb-bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1140px;margin:40px auto 0;text-align:left}
+.v-cb .cb-bpost{display:flex;flex-direction:column;background:#fff;border:1px solid rgba(20,18,15,.12);border-radius:22px;padding:14px 14px 22px;box-shadow:0 22px 38px -28px rgba(20,18,15,.55)}
+.v-cb .cb-bshot{display:block;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:var(--cr2)}
+.v-cb .cb-bshot img{width:100%;height:100%;object-fit:cover}
+.v-cb .cb-bmeta{margin:16px 6px 0;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-tx)}
+.v-cb .cb-bpost h3{margin:8px 6px 8px;font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:23px;line-height:1.2}
+.v-cb .cb-bpost h3 a{color:var(--ink);text-decoration:none}
+.v-cb .cb-bpost h3 a:hover{text-decoration:underline}
+.v-cb .cb-bpost p{margin:0 6px 18px;font-size:14.5px;line-height:1.6;color:var(--ink-mute)}
+.v-cb .cb-bread{margin:auto 6px 0;align-self:flex-start;color:var(--ink);border-color:rgba(20,18,15,.55);background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
+.v-cb .cb-bread:hover{background:var(--ink);color:var(--cr);border-color:var(--ink)}
+
+.v-cb .cb-art{position:relative;z-index:4;background:var(--cr);color:var(--ink);padding:56px max(22px,calc((100% - 780px)/2)) 80px;font-size:17px;line-height:1.75}
+.v-cb .cb-crumb a{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-tx);text-decoration:none}
+.v-cb .cb-art h1{margin:18px 0 10px;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-.015em}
+.v-cb .cb-upd{margin:0 0 26px;font-size:13px;color:#6b6357}
+.v-cb .cb-sum{background:#fff;border-left:4px solid var(--gold);border-radius:0 14px 14px 0;padding:18px 22px;margin:0 0 26px;box-shadow:0 14px 26px -22px rgba(20,18,15,.6)}
+.v-cb .cb-sum p{margin:6px 0 0;font-size:16.5px;line-height:1.65}
+.v-cb .cb-lab{display:block;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-tx)}
+.v-cb .cb-toc{border:1px solid rgba(20,18,15,.14);border-radius:14px;padding:16px 22px;margin:0 0 28px}
+.v-cb .cb-toc ol{margin:8px 0 0;padding-left:20px;font-size:15px;line-height:1.7}
+.v-cb .cb-art a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.v-cb .cb-art .btn-solid{text-decoration:none}
+.v-cb .cb-art h2{margin:44px 0 12px;font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:clamp(25px,3vw,32px);line-height:1.2;scroll-margin-top:110px}
+.v-cb .cb-art h3{margin:24px 0 6px;font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:20px;line-height:1.3}
+.v-cb .cb-art p{margin:0 0 16px}
+.v-cb .cb-afig{float:right;width:360px;max-width:100%;margin:6px 0 16px 26px}
+.v-cb .cb-afig img{width:100%;height:auto;border-radius:16px;border:6px solid #fff;box-shadow:0 20px 34px -24px rgba(20,18,15,.6)}
+.v-cb .cb-art h2{clear:both}
+.v-cb .cb-plist{margin:0 0 18px;padding-left:22px}
+.v-cb .cb-plist li{margin:0 0 8px}
+.v-cb .cb-tbl{width:100%;border-collapse:collapse;margin:6px 0 20px;font-size:15px;background:#fff;border-radius:12px;overflow:hidden}
+.v-cb .cb-tbl th,.v-cb .cb-tbl td{padding:11px 14px;border-bottom:1px solid rgba(20,18,15,.1);text-align:left;vertical-align:top}
+.v-cb .cb-tbl thead th{background:var(--ink);color:var(--cr);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.v-cb .cb-tbl td:first-child{font-weight:700}
+.v-cb .cb-artcta{clear:both;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin:40px 0 10px;padding:22px 24px;background:var(--ink);color:var(--cream);border-radius:18px}
+.v-cb .cb-artcta b{display:block;font-family:'Playfair Display',Georgia,serif;font-size:22px}
+.v-cb .cb-artcta span{font-size:14.5px;color:rgba(247,243,234,.8)}
+@media (max-width:980px){
+.v-cb .cb-blogidx{padding:52px 20px 60px}
+.v-cb .cb-bgrid{grid-template-columns:1fr;max-width:460px}
+.v-cb .cb-art{padding:40px 20px 64px;font-size:16.5px}
+.v-cb .cb-afig{float:none;width:100%;margin:6px 0 18px}
+.v-cb .cb-tbl{font-size:14px}
+.v-cb .cb-tbl th,.v-cb .cb-tbl td{padding:9px 10px}
+}
 /* ---- V5 COMBINED, About view ---- */
 .v-cb .cb-afull{min-height:0}
 .v-cb .cb-afull .bg img{object-position:center 40%}
@@ -4332,7 +4386,7 @@ function renderCombo() {
 
       <header class="shell-top">
         <div class="brand"><img src="${IMG.logo}" alt="Under Construction Hot Dogs"></div>
-        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home" aria-current="page">Home</a><a href="?p=menu" data-goto=":menu">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="#reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact">Contact</a></nav>
+        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home" aria-current="page">Home</a><a href="?p=menu" data-goto=":menu">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="?p=blog" data-goto=":blog">Blog</a><a href="#reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact">Contact</a></nav>
         <div class="top-r">
           <span class="pickup-chip">${ICON_PIN}<span><b>Pickup</b> out front of Lowe&#8217;s, U.S. 50</span></span>
           <a class="btn-solid btn-sm" href="https://underconstructionhotdogs.com/order/" target="_blank" rel="noopener">Order for Pickup</a>
@@ -4528,7 +4582,7 @@ function renderComboAbout() {
       <div class="bg" aria-hidden="true"><img src="${IMG.cart}" alt=""></div>
       <header class="shell-top">
         <div class="brand"><img src="${IMG.logo}" alt="Under Construction Hot Dogs"></div>
-        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu">Menu</a><a href="${ABOUT_HREF}" data-goto=":about" aria-current="page">About</a><a href="#reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact">Contact</a></nav>
+        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu">Menu</a><a href="${ABOUT_HREF}" data-goto=":about" aria-current="page">About</a><a href="?p=blog" data-goto=":blog">Blog</a><a href="#reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact">Contact</a></nav>
         <div class="top-r">
           <span class="pickup-chip">${ICON_PIN}<span><b>Pickup</b> out front of Lowe&#8217;s, U.S. 50</span></span>
           <a class="btn-solid btn-sm" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup</a>
@@ -4664,7 +4718,7 @@ function renderComboContact() {
       <div class="bg" aria-hidden="true"><img src="${IMG.cart}" alt=""></div>
       <header class="shell-top">
         <div class="brand"><img src="${IMG.logo}" alt="Under Construction Hot Dogs"></div>
-        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="${HOME_HREF}#reviews" data-goto=":home#reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact" aria-current="page">Contact</a></nav>
+        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="?p=blog" data-goto=":blog">Blog</a><a href="${HOME_HREF}#reviews" data-goto=":home#reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact" aria-current="page">Contact</a></nav>
         <div class="top-r">
           <span class="pickup-chip">${ICON_PIN}<span><b>Pickup</b> out front of Lowe&#8217;s, U.S. 50</span></span>
           <a class="btn-solid btn-sm" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup</a>
@@ -4749,6 +4803,108 @@ function renderComboContact() {
   </div>`;
 }
 
+
+/* V5 COMBINED, Blog. Posts are researched copy from blog/posts.py; facts in
+   blog/AISIM-and-research-2026-09-24.md. */
+const CB_POSTS = [{"slug": "what-is-a-chicago-style-hot-dog", "title": "What Is a Chicago-Style Hot Dog?", "meta_title": "What Is a Chicago-Style Hot Dog? The 7 Toppings Explained", "meta_desc": "A Chicago dog is an all-beef frank on a poppy seed bun with seven toppings and no ketchup. Here is each topping, and where to get one in Pueblo.", "img": "dogChicago", "img_alt": "A Chicago style hot dog with mustard, neon green relish, tomato and sport peppers on a poppy seed bun", "excerpt": "Seven toppings, a poppy seed bun and never ketchup. What goes on a real Chicago dog, and where to get one in Pueblo.", "mins": 5, "summary": "A Chicago-style hot dog is an all-beef frank on a poppy seed bun, topped with yellow mustard, chopped white onion, neon green relish, a dill pickle spear, tomato, sport peppers and a dash of celery salt. It never gets ketchup. In Pueblo, Colorado, Under Construction Hot Dogs builds one on an all-beef Vienna hot dog for $6.50, from a cart out front of Lowe&#8217;s on U.S. 50.", "intro": ["Order a hot dog in Chicago and you get something closer to a small salad on a bun. Order a plain hot dog most other places and it usually comes with mustard, ketchup or both.", "This guide walks through what goes on a real Chicago dog, why the ketchup stays off, and where to find one at <a href=\"?p=home\" data-goto=\":home\">Under Construction Hot Dogs</a>, the cart out front of Lowe&#8217;s on U.S. 50 in Pueblo."], "sections": [["toppings", "What Are the 7 Toppings on a Chicago Hot Dog?", ["The seven toppings are yellow mustard, chopped white onion, neon green relish, a dill pickle spear, tomato slices or wedges, pickled sport peppers and a dash of celery salt. They sit on an all-beef frank in a poppy seed bun. Chicagoans call the full build dragged through the garden, because of all the vegetables.", "<ol class=\"cb-plist\"><li><b>Yellow mustard.</b> Plain ballpark yellow.</li><li><b>Chopped white onion.</b> Raw, for crunch and a sharp bite.</li><li><b>Neon green relish.</b> A sweet pickle relish with a color you can spot from across the lot.</li><li><b>A dill pickle spear.</b> Laid along the length of the dog.</li><li><b>Tomato.</b> Slices or wedges tucked along one side.</li><li><b>Sport peppers.</b> Small pickled chile peppers, more on those below.</li><li><b>Celery salt.</b> A light dash over the top to finish it.</li></ol>", "The frank matters as much as the toppings. The Wikipedia entry on the <a href=\"https://en.wikipedia.org/wiki/Chicago-style_hot_dog\" target=\"_blank\" rel=\"noopener\">Chicago-style hot dog</a> describes a natural casing, all-beef frankfurter, most often the Vienna Beef brand, from the Chicago company whose founders sold hot dogs at the 1893 World&#8217;s Columbian Exposition."], "dogChicago"], ["ketchup", "Why Is There No Ketchup on a Chicago Dog?", ["Because the classic recipe never had it. Vienna Beef&#8217;s own Chicago dog recipe leaves ketchup off, and most Chicagoans treat adding it as a mistake. The usual reason given is that the sweetness fights the mustard, relish and peppers, which are meant to stay sharp, sour and a little hot against the salty beef.", "That does not mean you are stuck if you love ketchup. Our Hot Dog comes with yellow mustard and ketchup on an all-beef Vienna frank, for the same $6.50 as the Chicago Dog. Both sit side by side on <a href=\"?p=menu\" data-goto=\":menu\">our full menu</a>."], null], ["different", "What Makes a Chicago Hot Dog Different From a Regular Hot Dog?", ["Three things set it apart: the frank, the bun and the build. A Chicago dog uses an all-beef frank, usually with a natural casing, on a poppy seed bun, and carries seven toppings where a regular hot dog carries one or two. The result is sour, salty, crunchy and hot in the same bite.", "<table class=\"cb-tbl\"><thead><tr><th></th><th>Regular hot dog</th><th>Chicago dog</th></tr></thead><tbody><tr><td>Frank</td><td>Beef, pork, chicken, turkey or a mix</td><td>All beef</td></tr><tr><td>Bun</td><td>Plain white</td><td>Poppy seed</td></tr><tr><td>Toppings</td><td>Usually one or two</td><td>Seven</td></tr><tr><td>Ketchup</td><td>Common</td><td>Never</td></tr></tbody></table>", "Weighing a hot dog against a bratwurst instead? We break that one down in <a href=\"?p=post-hot-dog-vs-bratwurst\" data-goto=\":post-hot-dog-vs-bratwurst\">hot dog vs bratwurst</a>."], null], ["sport-peppers", "What Is a Sport Pepper?", ["A sport pepper is a small chile pepper, packed in brine and set whole on the Chicago dog. Vienna Beef, which sells them for exactly this job, describes them as naturally bite-sized, with the right amount of spicy crunch. That kick is the heat on a Chicago dog, so take the first bite with some respect.", "They have a long history in the city. Sport peppers first gained notice in Chicago through the Mexican pavilion at the 1893 World&#8217;s Fair, the same fair where the Vienna Beef founders sold hot dogs to visitors."], null], ["history", "Where Did the Chicago-Style Hot Dog Come From?", ["Its roots run through two moments. The first is the 1893 World&#8217;s Columbian Exposition, where Vienna Beef&#8217;s founders sold hot dogs to fairgoers. The second is the Great Depression, when vendors on Chicago&#8217;s Maxwell Street put together the topping lineup that stuck. It is the same seven-topping build this guide walks through.", "That street-vendor history is why a Chicago dog feels at home on a cart. It was born as food you order at a stand, and that is still the best way to eat one."], "cart"], ["pueblo", "Where Can You Get a Chicago Dog in Pueblo?", ["Under Construction Hot Dogs builds a Chicago Dog out front of Lowe&#8217;s Home Improvement at 1225 W U.S. Hwy 50 in Pueblo. It is an all-beef Vienna hot dog on a steamed poppy seed bun, dragged through the garden, never ketchup, for $6.50. The cart runs 10 a.m. to 3 p.m., closed Thursdays.", "You can order ahead for pickup and collect it at the cart, or walk up and order there. Directions, hours and a map are on <a href=\"?p=contact\" data-goto=\":contact\">our contact page</a>."], null]], "faq": [["Is a Chicago dog spicy?", "A little. The sport peppers bring the heat and everything else is sour, salty or fresh. For more kick, our menu describes <a href=\"?p=post-what-is-a-ditka-dog\" data-goto=\":post-what-is-a-ditka-dog\">the Ditka Dog</a> as spicier than a standard hot dog."], ["Can I get ketchup on a Chicago Dog?", "The Chicago Dog is built without it on purpose. If you want ketchup, order the Hot Dog, which comes with yellow mustard and ketchup."], ["What kind of bun goes on a Chicago dog?", "A poppy seed bun. At Under Construction Hot Dogs it is steamed."], ["How much is a Chicago Dog at Under Construction Hot Dogs?", "It is $6.50."]]}, {"slug": "hot-dog-vs-bratwurst", "title": "Hot Dog vs Bratwurst: What&#8217;s the Difference?", "meta_title": "Hot Dog vs Bratwurst: What&#8217;s the Difference?", "meta_desc": "Hot dog or brat? The real differences in meat, history and how they are served, plus which to order at our Pueblo cart out front of Lowe&#8217;s.", "img": "dogcut", "img_alt": "A bratwurst topped with sauerkraut on a poppy seed bun", "excerpt": "Beef or pork, Frankfurt or Nuremberg, steamed or grilled. How a hot dog and a brat really differ, and which one to order.", "mins": 5, "summary": "A hot dog is a sausage served in the slit of a bun, made from beef, pork, chicken, turkey or a mix. A bratwurst is a German sausage traditionally made from pork, first recorded in Nuremberg in 1313. At Under Construction Hot Dogs in Pueblo you can try both from the same cart, with all-beef hot dogs and bratwurst, both starting at $6.50.", "intro": ["They look alike in a bun, and plenty of people use the words for the same thing. They are not the same sausage, though, and knowing the difference makes it easier to pick one when you are standing at the board.", "Here is how the two compare, where each one comes from, and what we serve at <a href=\"?p=home\" data-goto=\":home\">Under Construction Hot Dogs</a>, out front of Lowe&#8217;s on U.S. 50 in Pueblo."], "sections": [["difference", "What&#8217;s the Difference Between a Hot Dog and a Bratwurst?", ["The biggest differences are the meat and the history. Bratwurst is traditionally pork, sometimes with veal or beef, and comes from Germany. A hot dog can be beef, pork, chicken or turkey, and at our cart the hot dogs are all beef. Brats are traditionally grilled, while hot dogs are grilled, steamed or boiled.", "<table class=\"cb-tbl\"><thead><tr><th></th><th>Hot dog</th><th>Bratwurst</th></tr></thead><tbody><tr><td>Usual meat</td><td>Beef, pork, chicken, turkey or a mix</td><td>Pork, sometimes veal or beef</td></tr><tr><td>Name</td><td>Frankfurter, after Frankfurt. Wiener, after Vienna</td><td>Br&auml;t, finely chopped meat, plus Wurst, sausage</td></tr><tr><td>Roots</td><td>Pork sausages from Frankfurt, Germany</td><td>First recorded in Nuremberg, Germany, 1313</td></tr><tr><td>Usual cooking</td><td>Grilled, steamed or boiled</td><td>Grilled</td></tr><tr><td>At our cart</td><td>From $6.50, all beef</td><td>From $6.50</td></tr></tbody></table>"], "dogcut"], ["made-of", "What Is Bratwurst Made Of?", ["Bratwurst is usually made from pork. The Wikipedia entry on <a href=\"https://en.wikipedia.org/wiki/Bratwurst\" target=\"_blank\" rel=\"noopener\">bratwurst</a> lists pork as the standard, with beef, veal or a mix of the three used less often. The name explains itself: in German, br&auml;t means finely chopped meat and Wurst means sausage. So the name is a plain description of what is inside.", "On our menu the all-beef label belongs to the hot dogs. The Brat is a juicy bratwurst on a steamed poppy seed bun, and the Cheddar Brat is a savory cheddar bratwurst on a poppy seed bun."], null], ["origins", "Where Do Hot Dogs and Brats Come From?", ["Both started in Germany and Austria. The first recorded bratwurst dates to 1313 in Nuremberg. The word frankfurter points to pork sausages from Frankfurt, and wiener points to Vienna. In the United States, bratwurst took off in Sheboygan County, Wisconsin, in the 1920s, when local butchers made it fresh to order.", "The hot dog went its own way in America, nowhere more than Chicago, where vendors built the seven-topping lineup we cover in <a href=\"?p=post-what-is-a-chicago-style-hot-dog\" data-goto=\":post-what-is-a-chicago-style-hot-dog\">what is a Chicago-style hot dog</a>."], null], ["served", "How Are Hot Dogs and Brats Usually Served?", ["Hot dogs are grilled, steamed or boiled and served in the slit of a bun. Bratwurst is traditionally grilled, often over a wood fire in Germany. At our cart the brats and the plain Hot Dog both come on a poppy seed bun, and you can add grilled onions or sauerkraut for 50 cents.", "Sauerkraut is the classic partner for a brat, but nothing stops you putting it on a hot dog. Grilled onions work on either."], "dogMustard"], ["healthier", "Which Is Healthier, a Brat or a Hot Dog?", ["It depends on the exact sausage, its size and the toppings, so no single answer covers every brat or hot dog. The honest comparison is the nutrition labels of the two products you are choosing between. We do not publish nutrition figures for our menu, so ask at the cart if it matters to you."], null], ["which", "Should You Order a Hot Dog or a Brat?", ["Order a hot dog if you want a classic all-beef bite and like the toppings doing the talking. Order a brat if you want a juicy, savory sausage with the flavor built in. If you cannot decide, get one of each, since both start at $6.50 on <a href=\"?p=menu\" data-goto=\":menu\">our menu</a>.", "<ul class=\"cb-plist\"><li><b>Hot Dog, $6.50.</b> All-beef Vienna with yellow mustard and ketchup.</li><li><b>Chicago Dog, $6.50.</b> All-beef Vienna, dragged through the garden.</li><li><b>Chili Dog, $7.00.</b> Vienna all beef with chili, cheddar and diced onions.</li><li><b>Jumbo Dog, $7.50.</b> A quarter pound of all beef.</li><li><b>Ditka Dog, $8.50.</b> A third of a pound, spicier than standard. The story is in <a href=\"?p=post-what-is-a-ditka-dog\" data-goto=\":post-what-is-a-ditka-dog\">what is a Ditka Dog</a>.</li><li><b>Brat, $6.50.</b> Juicy bratwurst on a steamed poppy seed bun.</li><li><b>Cheddar Brat, $7.50.</b> Savory cheddar bratwurst.</li><li><b>Spicy Link, $6.50.</b> A spicy link with just the right amount of heat.</li></ul>"], null]], "faq": [["Is a bratwurst a type of hot dog?", "No, though both are sausages served in a bun. A bratwurst is its own German sausage, usually pork, while a hot dog is the frankfurter style."], ["Are your brats all beef?", "The all-beef label on our menu belongs to the hot dogs. The brats are bratwurst, and the Cheddar Brat is a cheddar bratwurst."], ["Can I add sauerkraut to a hot dog?", "Yes. Grilled onions or sauerkraut can go on for 50 cents."], ["How much are the brats?", "The Brat is $6.50 and the Cheddar Brat is $7.50. Hours and directions are on <a href=\"?p=contact\" data-goto=\":contact\">our contact page</a>."]]}, {"slug": "what-is-a-ditka-dog", "title": "What Is a Ditka Dog?", "meta_title": "What Is a Ditka Dog? The Third-Pound Hot Dog Explained", "meta_desc": "A Ditka Dog is a third-pound, all-beef hot dog named for Bears coach Mike Ditka. Where the name comes from, how big it is, and where to get one in Pueblo.", "img": "dogsThree", "img_alt": "All beef hot dogs in red and white checked paper baskets", "excerpt": "A third of a pound, spicier than standard, and named for Iron Mike. The story behind the biggest dog on our board.", "mins": 5, "summary": "A Ditka Dog is an oversized hot dog named for Mike Ditka, the Hall of Fame tight end who coached the Chicago Bears to a Super Bowl XX win. At Under Construction Hot Dogs in Pueblo it is a 100% all-beef hot dog weighing a third of a pound, made to Coach Ditka&#8217;s specifications, bigger, thicker and spicier than a standard hot dog, on a steamed poppy seed bun for $8.50.", "intro": ["It is the biggest thing on our board, and the name raises an obvious question: what exactly is a Ditka Dog?", "Short answer, it is a big, spicy, all-beef hot dog with a football legend&#8217;s name on it. The longer answer involves a Super Bowl, a Chicago sausage maker and a steel town. Here is all of it, from <a href=\"?p=home\" data-goto=\":home\">Under Construction Hot Dogs</a> in Pueblo."], "sections": [["what", "What Is a Ditka Dog?", ["It is the big one. Our menu describes the Ditka Dog as an enormous one-third pound, 100% all-beef hot dog made to Coach Mike Ditka&#8217;s specifications, bigger, thicker and spicier than the standard hot dog. It comes on a steamed poppy seed bun and costs $8.50, the top price on our board."], "dogsThree"], ["who", "Who Is Mike Ditka?", ["Mike Ditka is a Chicago Bears legend. He played tight end for the Bears from 1961 to 1966 and in 1988 became the first tight end inducted into the Pro Football Hall of Fame. As head coach from 1982 to 1992, he led the Bears to a 46 to 10 win over New England in Super Bowl XX.", "That game was played on January 26, 1986. The Wikipedia entry on <a href=\"https://en.wikipedia.org/wiki/Mike_Ditka\" target=\"_blank\" rel=\"noopener\">Mike Ditka</a> notes his nickname, Iron Mike, which he tied to being born and raised in a steel town in Pennsylvania."], null], ["name", "Where Does the Ditka Name on a Hot Dog Come From?", ["Coach Ditka put his name on sausages. Vienna Beef sells a Ditka Hot Beef Polish Sausage that weighs a full third of a pound and measures 8 inches, and says it was taste-approved by Ditka himself. In 2014, Chicago&#8217;s Al&#8217;s Italian Beef sold a spicy, jumbo Ditka Dog of one-third pound Vienna Beef.", "Both of those Ditka products weigh a third of a pound, and Al&#8217;s was sold as spicy. Ours follows that idea, and our menu describes it as made to Coach Ditka&#8217;s specifications."], null], ["size", "How Big Is a Ditka Dog?", ["A third of a pound works out to about 5.3 ounces. That is more than our Jumbo Dog, a quarter pound or 4 ounces, and more than two and a half times a hot dog from a pack of eight to the pound, which weighs 2 ounces each. It is a full meal on a bun.", "<table class=\"cb-tbl\"><thead><tr><th></th><th>Weight</th><th>Price</th></tr></thead><tbody><tr><td>Hot dog from an 8 per pound pack</td><td>2 oz</td><td>For comparison</td></tr><tr><td>Our Jumbo Dog</td><td>1/4 lb, 4 oz</td><td>$7.50</td></tr><tr><td>Our Ditka Dog</td><td>1/3 lb, about 5.3 oz</td><td>$8.50</td></tr></tbody></table>"], null], ["steel", "Why Does a Ditka Dog Belong in Pueblo?", ["Because Iron Mike and Pueblo share a steel story. Ditka tied his nickname to growing up in a Pennsylvania steel town, and Pueblo is known as the Steel City, home of the Colorado Fuel and Iron mill that was for nearly a century the largest employer in Colorado. A steel-town coach&#8217;s dog fits right in here.", "It also fits the cart. Under Construction Hot Dogs runs on a job-site theme, and the Ditka is the biggest dog on the board."], "cart"], ["get", "How Do You Get a Ditka Dog in Pueblo?", ["Come to the cart out front of Lowe&#8217;s at 1225 W U.S. Hwy 50, open 10 a.m. to 3 p.m. and closed Thursdays, or order ahead online for pickup. Our menu notes that availability varies on the Ditka Dog, so if you have your heart set on one, ordering ahead is the way to go.", "The rest of the lineup, from the $6.50 Hot Dog to the Cheddar Brat, is on <a href=\"?p=menu\" data-goto=\":menu\">our full menu</a>."], null]], "faq": [["Is the Ditka Dog spicy?", "Our menu describes the Ditka Dog itself as spicier than the standard hot dog."], ["How much is a Ditka Dog?", "It is $8.50 at Under Construction Hot Dogs."], ["What toppings go on a Ditka Dog?", "Our menu lists it on a steamed poppy seed bun. Add grilled onions or sauerkraut for 50 cents, or see <a href=\"?p=post-what-is-a-chicago-style-hot-dog\" data-goto=\":post-what-is-a-chicago-style-hot-dog\">what goes on a Chicago-style hot dog</a> for the full garden build."], ["Is the Ditka Dog the same as the Chicago Dog?", "No. The Chicago Dog is an all-beef Vienna hot dog with seven toppings for $6.50. The Ditka Dog is a third of a pound, spicier and $8.50. Directions are on <a href=\"?p=contact\" data-goto=\":contact\">our contact page</a>."]]}];
+function cbNavBar(blogCur) {
+  return `<header class="shell-top">
+        <div class="brand"><img src="${IMG.logo}" alt="Under Construction Hot Dogs"></div>
+        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="?p=blog" data-goto=":blog"__BLOGCUR__>Blog</a><a href="${HOME_HREF}#reviews" data-goto=":home#reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact">Contact</a></nav>
+        <div class="top-r">
+          <span class="pickup-chip">${ICON_PIN}<span><b>Pickup</b> out front of Lowe&#8217;s, U.S. 50</span></span>
+          <a class="btn-solid btn-sm" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup</a>
+        </div>
+      </header>`.replace('__BLOGCUR__', blogCur ? ' aria-current="page"' : '');
+}
+function renderComboBlog() {
+  document.title = 'Blog | Under Construction Hot Dogs';
+  return `
+  <div class="stage-wrap v-rc v-cb">
+    <div class="fullbleed cb-afull">
+      <div class="bg" aria-hidden="true"><img src="${IMG.dogsWide}" alt=""></div>
+      ${cbNavBar(true)}
+      <div class="rule" aria-hidden="true"></div>
+      <div class="stage-mid cb-amid">
+        <span class="rc-brandline"><img src="${IMG.hat}" alt="" aria-hidden="true">The Blog</span>
+        <h1 class="hero-h1">Hot Dog Talk From <b>the Cart</b></h1>
+        <p class="cb-alede">Short reads on what we build and why, from the cart out front of Lowe&#8217;s on U.S. 50 in Pueblo.</p>
+        <div class="hero-cta rc-secondary">
+          <a href="${ORDER_URL}" target="_blank" rel="noopener" class="btn-solid" data-primary-order>Order for Pickup ${ARROW}</a>
+          <a href="?p=menu" data-goto=":menu" class="btn-ghost">See the Full Menu</a>
+        </div>
+        ${pickupNote('rc-note')}
+      </div>
+      <div class="rc-foot-band">
+        <img class="rc-mascot" src="${IMG.mascot}" alt="The Under Construction Hot Dogs mascot, a hot dog in a hard hat giving a thumbs up">
+        <div class="rc-hazard" aria-hidden="true"></div>
+      </div>
+    </div>
+    <section class="cb-blogidx">
+      <div class="bc-eyebrow">Latest posts</div>
+      <h2 class="cb-h2">From the <em>Board</em></h2>
+      <div class="cb-bgrid">
+        ${CB_POSTS.map(p => `
+        <article class="cb-bpost">
+          <a class="cb-bshot" href="?p=post-${p.slug}" data-goto=":post-${p.slug}" tabindex="-1" aria-hidden="true"><img src="${IMG[p.img]}" alt=""></a>
+          <span class="cb-bmeta">${p.mins} min read</span>
+          <h3><a href="?p=post-${p.slug}" data-goto=":post-${p.slug}">${p.title}</a></h3>
+          <p>${p.excerpt}</p>
+          <a class="btn-ghost cb-bread" href="?p=post-${p.slug}" data-goto=":post-${p.slug}" aria-label="Read the post: ${p.title.replace(/&#8217;/g, "'")}">Read the Post ${ARROW}</a>
+        </article>`).join('')}
+      </div>
+      <div class="cb-arow cb-arow-c"><a class="btn-solid" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup ${ARROW}</a></div>
+    </section>
+    <footer class="shell-foot" id="find">
+      <div>
+        <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-bottom:6px">Hours</div>
+        ${hoursGrid()}
+      </div>
+      <div style="letter-spacing:.12em;text-transform:uppercase;font-size:11px;color:#f7f3ea">1225 W U.S. Hwy 50</div>
+      <div style="text-align:right">
+        <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-bottom:6px">Out front at Lowe's</div>
+        <a class="foot-dir" href="${MAP_LINK}" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+    </footer>
+    ${stickyOrder()}
+  </div>`;
+}
+function renderComboPost() {
+  const slug = currentView.slice(5);
+  const p = CB_POSTS.find(x => x.slug === slug);
+  if (!p) { currentView = 'blog'; return renderComboBlog(); }
+  document.title = p.meta_title.replace(/&#8217;/g, "'") + ' | Under Construction Hot Dogs';
+  const fig = k => k ? `<figure class="cb-afig"><img src="${IMG[k]}" alt="${k === p.img ? p.img_alt : (k === 'cart' ? 'The Under Construction Hot Dogs cart with its canopy raised, letter board menu, and chips and drinks on the counter' : (MENU.dogs.find(d => d.img === k) || {}).alt || '')}" loading="lazy"></figure>` : '';
+  return `
+  <div class="stage-wrap v-rc v-cb">
+    <div class="cb-mbar">${cbNavBar(true)}</div>
+    <article class="cb-art">
+      <nav class="cb-crumb" aria-label="Breadcrumb"><a href="?p=blog" data-goto=":blog">&larr; All posts</a></nav>
+      <h1>${p.title}</h1>
+      <p class="cb-upd">Last updated September 2026 / ${p.mins} min read</p>
+      <div class="cb-sum"><span class="cb-lab">Quick answer</span><p>${p.summary}</p></div>
+      <nav class="cb-toc" aria-label="In this post"><span class="cb-lab">In this post</span><ol>${p.sections.map(s => `<li><a href="#${s[0]}">${s[1]}</a></li>`).join('')}<li><a href="#faq">Frequently Asked Questions</a></li></ol></nav>
+      ${p.intro.map(x => `<p>${x}</p>`).join('')}
+      ${p.sections.map(s => `<h2 id="${s[0]}">${s[1]}</h2>${fig(s[3])}${s[2].map(x => x.charAt(0) === '<' ? x : `<p>${x}</p>`).join('')}`).join('')}
+      <aside class="cb-artcta"><div><b>Hungry yet?</b><span>Order ahead for pickup at the cart out front of Lowe&#8217;s, 10 a.m. to 3 p.m., closed Thursdays.</span></div><a class="btn-solid" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup ${ARROW}</a></aside>
+      <h2 id="faq">Frequently Asked Questions</h2>
+      ${p.faq.map(f => `<h3>${f[0]}</h3><p>${f[1]}</p>`).join('')}
+    </article>
+    <footer class="shell-foot" id="find">
+      <div>
+        <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-bottom:6px">Hours</div>
+        ${hoursGrid()}
+      </div>
+      <div style="letter-spacing:.12em;text-transform:uppercase;font-size:11px;color:#f7f3ea">1225 W U.S. Hwy 50</div>
+      <div style="text-align:right">
+        <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-bottom:6px">Out front at Lowe's</div>
+        <a class="foot-dir" href="${MAP_LINK}" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+    </footer>
+    ${stickyOrder()}
+  </div>`;
+}
+
 const VARIANTS = [renderCombo];
 /* Combined menu view: The Cart's menu page with the Combined gold order buttons. */
 function renderComboMenu() {
@@ -4756,7 +4912,7 @@ function renderComboMenu() {
   const nav = `<div class="cb-mbar">
       <header class="shell-top">
         <div class="brand"><img src="${IMG.logo}" alt="Under Construction Hot Dogs"></div>
-        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu" aria-current="page">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="${HOME_HREF}#reviews" data-goto=":home#reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact">Contact</a></nav>
+        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu" aria-current="page">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="?p=blog" data-goto=":blog">Blog</a><a href="${HOME_HREF}#reviews" data-goto=":home#reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact">Contact</a></nav>
         <div class="top-r">
           <span class="pickup-chip">${ICON_PIN}<span><b>Pickup</b> out front of Lowe&#8217;s, U.S. 50</span></span>
           <a class="btn-solid btn-sm" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup</a>
@@ -4773,6 +4929,8 @@ const MENU_VARIANTS = [renderComboMenu];
 const ABOUT_VARIANTS = [renderComboAbout];
 /* Only Combined has a contact view; the four originals show their home. */
 const CONTACT_VARIANTS = [renderComboContact];
+const BLOG_VARIANTS = [renderComboBlog];
+const POST_VARIANTS = [renderComboPost];
 let currentView = 'home';
 const stage = document.getElementById('stage');
 const picker = document.querySelector('.proto-picker');
@@ -5020,7 +5178,10 @@ function show(i, push, view) {
   else if (prev !== current) currentView = 'home';
   const list = currentView === 'menu' ? MENU_VARIANTS
     : currentView === 'about' ? ABOUT_VARIANTS
-    : currentView === 'contact' ? CONTACT_VARIANTS : VARIANTS;
+    : currentView === 'contact' ? CONTACT_VARIANTS
+    : currentView === 'blog' ? BLOG_VARIANTS
+    : currentView.indexOf('post-') === 0 ? POST_VARIANTS : VARIANTS;
+  document.title = 'Under Construction Hot Dogs';
   stage.innerHTML = list[current]();
   items.forEach((b, n) => {
     if (n === current) { b.setAttribute('data-active', ''); b.setAttribute('aria-current', 'true'); }
@@ -5031,7 +5192,7 @@ function show(i, push, view) {
   if (push !== false) {
     const u = new URL(location.href);
     u.searchParams.delete('v');
-    if (currentView === 'menu' || currentView === 'about' || currentView === 'contact') u.searchParams.set('p', currentView);
+    if (currentView !== 'home') u.searchParams.set('p', currentView);
     else u.searchParams.delete('p');
     history.replaceState(null, '', u);
   }
@@ -5074,7 +5235,7 @@ window.addEventListener('resize', moveHighlight);
 const _bootURL = new URL(location.href);
 const start = parseInt(_bootURL.searchParams.get('v') || '1', 10) - 1;
 const _bootP = _bootURL.searchParams.get('p');
-const startView = (_bootP === 'menu' || _bootP === 'about' || _bootP === 'contact') ? _bootP : 'home';
+const startView = (_bootP && /^(menu|about|contact|blog|post-[a-z0-9-]+)$/.test(_bootP)) ? _bootP : 'home';
 show(Number.isFinite(start) ? start : 0, false, startView);
 requestAnimationFrame(() => picker.setAttribute('data-ready', ''));
 
