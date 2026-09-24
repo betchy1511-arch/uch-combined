@@ -2754,6 +2754,9 @@ img{display:block;max-width:100%}
 .v-cb .cb-onote{margin:16px 0 0;font-size:14px;color:var(--ink-mute)}
 .v-cb .cb-onote a{color:var(--ink);font-weight:700}
 @media (max-width:980px){.v-cb .cb-oapp{padding:24px 12px 40px}.v-cb .cb-oframe{height:1100px;border-radius:14px}}
+/* cut-out product images (no background) show whole instead of cropped */
+.v-cb .cb-shot.cb-shot-cut{background:radial-gradient(ellipse at 50% 60%,#fff9f1,var(--cr2) 75%)}
+.v-cb .cb-shot.cb-shot-cut img{object-fit:contain;box-sizing:border-box;padding:16px 20px;filter:drop-shadow(0 14px 14px rgba(20,18,15,.28))}
 /* ---- V5 COMBINED, About view ---- */
 .v-cb .cb-afull{min-height:0}
 .v-cb .cb-afull .bg img{object-position:center 40%}
@@ -2930,7 +2933,7 @@ function pickupNote(cls) {
 /* The handoff, said plainly: the button opens the separate ordering site, which has no
    link to a single item, so nothing chosen on this page is carried across. */
 function handoffNote(cls) {
-  return `<p class="handoff-note${cls ? ' ' + cls : ''}">Order for Pickup opens our online ordering in a new tab, where you choose your build and check out.</p>`;
+  return `<p class="handoff-note${cls ? ' ' + cls : ''}">Order for Pickup opens our online ordering, where you choose your build and check out.</p>`;
 }
 /* Mobile sticky order button. Hidden while the hero's own Order for Pickup is on screen,
    and the page carries matching bottom padding so it never sits over the last content. */
@@ -4626,7 +4629,7 @@ function cbMenuSection() { return `
       <div class="cb-cards">
         ${cbMenu().map(m => `
         <article class="cb-card">
-          <div class="cb-shot"><img src="${IMG[m.img]}" alt="${m.alt}"></div>
+          <div class="cb-shot${m.img === 'dogcut' || m.img === 'dogMustard' ? ' cb-shot-cut' : ''}"><img src="${IMG[m.img]}" alt="${m.alt}"></div>
           <div class="cb-head"><h3>${m.n}</h3><span class="cb-price">${m.p}</span></div>
           <p class="cb-desc">${m.d}</p>
           <div class="cb-qd">
