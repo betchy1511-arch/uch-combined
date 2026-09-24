@@ -2669,6 +2669,8 @@ img{display:block;max-width:100%}
 .cb-totop svg{width:22px;height:22px}
 @media (max-width:980px){.cb-totop{left:14px;bottom:calc(88px + var(--cb-lift,0px));width:52px;height:52px}}
 @media (prefers-reduced-motion:reduce){.cb-totop,.cb-totop[data-show]{transition:none;transform:none}}
+/* menu page: "See the Menu" jump clears the fixed phone header */
+@media (max-width:980px){#menu-board{scroll-margin-top:110px}}
 /* ---- V5 COMBINED, About view ---- */
 .v-cb .cb-afull{min-height:0}
 .v-cb .cb-afull .bg img{object-position:center 40%}
@@ -4576,6 +4578,26 @@ function cbFindSection() { return `
       </div>
     </section>`; }
 
+function cbWorkSection() {
+  return `
+    <section class="cb-work">
+      <div class="bp-travel">
+        <svg class="tpath" viewBox="0 0 1200 530" preserveAspectRatio="none" aria-hidden="true">
+          <path id="bpPath" d="M 40 452 C 250 470, 330 330, 470 300 C 620 268, 700 386, 830 372 C 960 358, 1010 190, 1006 96"/>
+        </svg>
+        <img class="tmark" src="${IMG.hat}" alt="" aria-hidden="true">
+        <div class="cb-workhead">
+          <div class="bc-eyebrow">Out front at Lowe&#8217;s</div>
+          <h2 class="cb-h2">Served Where <em>the Work Is</em></h2>
+          <p>The cart sets up out front of Lowe&#8217;s Home Improvement on U.S. 50, so lunch is right where the work is. Open 10 a.m. to 3 p.m., closed Thursdays.</p>
+          <a class="btn-ghost" href="${MAP_LINK}" target="_blank" rel="noopener">Get Directions ${ARROW}</a>
+        </div>
+        <figure class="cb-pola p1"><img src="${IMG.cart}" alt="The Under Construction Hot Dogs cart"><figcaption>The Cart</figcaption></figure>
+        <figure class="cb-pola p2"><img src="${IMG.dogsThree}" alt="Three hot dogs built with different toppings"><figcaption>Hwy 50</figcaption></figure>
+        <figure class="cb-pola p3"><img src="${IMG.dogsWide}" alt="A tray of hot dogs ready to serve"><figcaption>10 a.m. to 3 p.m.</figcaption></figure>
+      </div>
+    </section>`;
+}
 function renderCombo() {
   return `
   <div class="stage-wrap v-rc v-cb">
@@ -4642,23 +4664,7 @@ function renderCombo() {
 
     ${cbMenuSection()}
 
-    <section class="cb-work">
-      <div class="bp-travel">
-        <svg class="tpath" viewBox="0 0 1200 530" preserveAspectRatio="none" aria-hidden="true">
-          <path id="bpPath" d="M 40 452 C 250 470, 330 330, 470 300 C 620 268, 700 386, 830 372 C 960 358, 1010 190, 1006 96"/>
-        </svg>
-        <img class="tmark" src="${IMG.hat}" alt="" aria-hidden="true">
-        <div class="cb-workhead">
-          <div class="bc-eyebrow">Out front at Lowe&#8217;s</div>
-          <h2 class="cb-h2">Served Where <em>the Work Is</em></h2>
-          <p>The cart sets up out front of Lowe&#8217;s Home Improvement on U.S. 50, so lunch is right where the work is. Open 10 a.m. to 3 p.m., closed Thursdays.</p>
-          <a class="btn-ghost" href="${MAP_LINK}" target="_blank" rel="noopener">Get Directions ${ARROW}</a>
-        </div>
-        <figure class="cb-pola p1"><img src="${IMG.cart}" alt="The Under Construction Hot Dogs cart"><figcaption>The Cart</figcaption></figure>
-        <figure class="cb-pola p2"><img src="${IMG.dogsThree}" alt="Three hot dogs built with different toppings"><figcaption>Hwy 50</figcaption></figure>
-        <figure class="cb-pola p3"><img src="${IMG.dogsWide}" alt="A tray of hot dogs ready to serve"><figcaption>10 a.m. to 3 p.m.</figcaption></figure>
-      </div>
-    </section>
+    ${cbWorkSection()}
 
     <section class="om2" id="ourmenu">
       <div class="bc-eyebrow">Our Menu</div>
@@ -4889,7 +4895,7 @@ function renderComboContact() {
       <div class="rule" aria-hidden="true"></div>
       <div class="stage-mid cb-amid">
         <span class="rc-brandline"><img src="${IMG.hat}" alt="" aria-hidden="true">Contact</span>
-        <h1 class="hero-h1">Come Grab a <b>Bite</b></h1>
+        <h1 class="hero-h1">Come <b>Grab a Bite</b></h1>
         <p class="cb-alede">${ABOUT.find}</p>
         ${heroRating('rc-rate')}
         <div class="hero-cta rc-secondary">
@@ -5021,6 +5027,7 @@ function renderComboBlog() {
       </div>
       <div class="cb-arow cb-arow-c"><a class="btn-solid" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup ${ARROW}</a></div>
     </section>
+    ${cbWorkSection()}
     <footer class="shell-foot" id="find">
       <div>
         <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-bottom:6px">Hours</div>
@@ -5245,22 +5252,52 @@ function renderComboReviews() {
 const VARIANTS = [renderCombo];
 /* Combined menu view: The Cart's menu page with the Combined gold order buttons. */
 function renderComboMenu() {
-  /* Beth 24 Sep: the menu page needs the same full nav as the Combined home and About. */
-  const nav = `<div class="cb-mbar">
-      <header class="shell-top">
-        <div class="brand"><img src="${IMG.logo}" alt="Under Construction Hot Dogs"></div>
-        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu" aria-current="page">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="?p=blog" data-goto=":blog">Blog</a><a href="?p=reviews" data-goto=":reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact">Contact</a></nav>
-        <div class="top-r">
-          <span class="pickup-chip">${ICON_PIN}<span><b>Pickup</b> out front of Lowe&#8217;s, U.S. 50</span></span>
-          <a class="btn-solid btn-sm" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup</a>
+  /* Beth 24 Sep: the menu page opens like the other pages (photo hero, marquee), then The Cart's
+     menu board, Find Us and CTAs, then the site footer. */
+  document.title = 'Menu | Under Construction Hot Dogs';
+  const nav = cbNavBar(false).replace('data-goto=":menu">Menu</a>', 'data-goto=":menu" aria-current="page">Menu</a>');
+  const hero = `
+    <div class="fullbleed cb-afull">
+      <div class="bg" aria-hidden="true"><img src="${IMG.dogHero}" alt=""></div>
+      ${nav}
+      <div class="rule" aria-hidden="true"></div>
+      <div class="stage-mid cb-amid">
+        <span class="rc-brandline"><img src="${IMG.hat}" alt="" aria-hidden="true">The Menu</span>
+        <h1 class="hero-h1">Choose Your <b>Dog</b></h1>
+        <p class="cb-alede">${MENU.tag} An all beef frank, a bratwurst or a spicy link, dressed the way you like it.</p>
+        ${heroRating('rc-rate')}
+        <div class="hero-cta rc-secondary">
+          <a href="${ORDER_URL}" target="_blank" rel="noopener" class="btn-solid" data-primary-order>Order for Pickup ${ARROW}</a>
+          <a href="#menu-board" class="btn-ghost">See the Menu</a>
         </div>
-      </header>
-    </div>`;
-  let h = renderRCMenu().replace('<div class="stage-wrap v-rc">', '<div class="stage-wrap v-rc v-cb">');
-  const a = h.indexOf('<header class="mp-top">');
-  if (a < 0) return h;
-  const b = h.indexOf('</header>', a) + 9;
-  return h.slice(0, a) + nav + h.slice(b);
+        ${pickupNote('rc-note')}
+      </div>
+      <div class="rc-foot-band">
+        <img class="rc-mascot" src="${IMG.mascot}" alt="The Under Construction Hot Dogs mascot, a hot dog in a hard hat giving a thumbs up">
+        <div class="rc-hazard" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="cb-marq" aria-hidden="true"><div class="cb-track"><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span></div></div>`;
+  let h = renderRCMenu();
+  const x = h.indexOf('<header class="mp-top">');
+  const y = h.indexOf('<div class="mp-hazard" aria-hidden="true"></div>', x);
+  if (x < 0 || y < 0) return h;
+  h = h.slice(0, x) + h.slice(y + '<div class="mp-hazard" aria-hidden="true"></div>'.length);
+  h = h.replace('<div class="stage-wrap v-rc">', '<div class="stage-wrap v-rc v-cb">' + hero)
+       .replace('<div class="mp-board">', '<div class="mp-board" id="menu-board">')
+       .replace('<div class="sticky-order"', `<footer class="shell-foot" id="find">
+      <div>
+        <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-bottom:6px">Hours</div>
+        ${hoursGrid()}
+      </div>
+      <div style="letter-spacing:.12em;text-transform:uppercase;font-size:11px;color:#f7f3ea">1225 W U.S. Hwy 50</div>
+      <div style="text-align:right">
+        <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-bottom:6px">Out front at Lowe's</div>
+        <a class="foot-dir" href="${MAP_LINK}" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+    </footer>
+    <div class="sticky-order"`);
+  return h;
 }
 const MENU_VARIANTS = [renderComboMenu];
 const ABOUT_VARIANTS = [renderComboAbout];
@@ -5585,35 +5622,44 @@ cbTop.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" st
 cbTop.addEventListener('click', () => {
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   window.scrollTo({ top: 0, behavior: still ? 'auto' : 'smooth' });
-  const first = stage.querySelector('.shell-top a');
-  if (first) first.focus({ preventScroll: true });
+  /* focus the page heading, not a nav link, so keyboard users land at the top of the content */
+  const h1 = stage.querySelector('h1');
+  if (h1) { if (!h1.hasAttribute('tabindex')) h1.setAttribute('tabindex', '-1'); h1.focus({ preventScroll: true }); }
 });
 document.body.appendChild(cbTop);
-function cbScrollUI() {
+function cbUnstick(wrap) {
+  if (!wrap || !wrap.classList.contains('cb-stuck')) return;
+  wrap.classList.remove('cb-stuck');
+  const hdr = wrap.querySelector('.shell-top');
+  if (hdr) hdr.parentElement.style.paddingTop = '';
+}
+function cbScrollNow() {
   const wrap = stage.querySelector('.stage-wrap.v-cb');
   const y = window.scrollY || document.documentElement.scrollTop;
   if (wrap && y > 600) cbTop.setAttribute('data-show', ''); else cbTop.removeAttribute('data-show');
   if (!wrap) return;
   /* lift the button above the footer once the footer is on screen, so it never covers the hours */
   const foot = wrap.querySelector('.shell-foot');
-  const lift = foot ? Math.max(0, innerHeight - foot.getBoundingClientRect().top) : 0;
+  const lift = foot ? Math.min(foot.offsetHeight, Math.max(0, innerHeight - foot.getBoundingClientRect().top)) : 0;
   cbTop.style.setProperty('--cb-lift', lift + 'px');
   const hdr = wrap.querySelector('.shell-top');
-  if (!hdr || window.innerWidth <= 980) { wrap.classList.remove('cb-stuck'); return; }
+  if (!hdr || window.innerWidth <= 980) { cbUnstick(wrap); return; }
   const stuck = wrap.classList.contains('cb-stuck');
   if (!stuck) wrap.style.setProperty('--cb-hdr', hdr.offsetHeight + 'px');
   const limit = parseFloat(wrap.style.getPropertyValue('--cb-hdr')) || hdr.offsetHeight;
   if (!stuck && y > limit) {
-    const box = hdr.parentElement;
-    box.style.paddingTop = hdr.offsetHeight + 'px';
+    hdr.parentElement.style.paddingTop = hdr.offsetHeight + 'px';
     wrap.classList.add('cb-stuck');
   } else if (stuck && y <= limit) {
-    wrap.classList.remove('cb-stuck');
-    hdr.parentElement.style.paddingTop = '';
+    cbUnstick(wrap);
   }
 }
+/* at most one layout pass per animation frame */
+let cbRaf = 0;
+function cbScrollUI() { if (!cbRaf) cbRaf = requestAnimationFrame(() => { cbRaf = 0; cbScrollNow(); }); }
 window.addEventListener('scroll', cbScrollUI, { passive: true });
-window.addEventListener('resize', cbScrollUI);
+/* on resize, unpin first so the next pass measures the header at its natural size */
+window.addEventListener('resize', () => { cbUnstick(stage.querySelector('.stage-wrap.v-cb')); cbScrollUI(); });
 
 const _bootURL = new URL(location.href);
 const start = parseInt(_bootURL.searchParams.get('v') || '1', 10) - 1;
