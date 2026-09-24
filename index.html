@@ -2630,6 +2630,9 @@ img{display:block;max-width:100%}
 .v-cb .cb-rban-track{position:relative;height:12px;border-radius:99px;background:rgba(247,243,234,.14);overflow:hidden}
 .v-cb .cb-rban-track i{position:absolute;inset:0 auto 0 0;border-radius:99px;background:var(--gold)}
 .v-cb .cb-rban .cb-rsrc{margin:18px 0 0;font-size:13px;color:rgba(247,243,234,.66);text-align:left}
+#all-reviews{scroll-margin-top:24px}
+@media (min-width:981px) and (max-width:1180px){.v-cb .cb-rban-prop{display:none}}
+@media (max-width:980px){#all-reviews{scroll-margin-top:110px}}
 @media (max-width:1180px){.v-cb .cb-rw4{display:block;columns:2;column-gap:26px;max-width:760px}.v-cb .cb-rw4c{display:contents}.v-cb .cb-rw4 .cb-rcard{break-inside:avoid;display:block;margin:0 0 26px}}
 @media (max-width:980px){
 .v-cb .cb-rban{padding:64px 20px 56px}
@@ -5130,7 +5133,7 @@ const CB_REVIEWS = [
   ['Brian Apodaca', 'Best Chicago dog i have had in Pueblo. You need to come see him at the Northside Lowe&#8217;s you won&#8217;t be disappointed. He has a great variety of dogs and brats with all the fixing with chips and cold drinks as well. Highly recommend you come get your hotdog fix now!!!'],
   ['Janet Johnson', 'best hot dogs i ever had , brought few of my friends too , they also love it , come check it out , out side of lowes on highway 50']
 ];
-/* Four columns of two, long paired with short so the columns end level. Indexes into CB_REVIEWS. */
+/* Four columns of two. Pairs picked from card heights measured at 1440 and 1280 (24 Sep 2026); re-measure if CB_REVIEWS changes. Indexes into CB_REVIEWS. */
 const CB_RW4_COLS = [[0, 4], [1, 3], [2, 7], [5, 6]];
 function renderComboReviews() {
   document.title = 'Reviews | Under Construction Hot Dogs';
