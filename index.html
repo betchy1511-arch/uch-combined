@@ -2699,12 +2699,35 @@ img{display:block;max-width:100%}
 .cb-totop{bottom:calc(94px + var(--cb-lift,0px))}
 }
 /* ---- V5 COMBINED, address chip in the phone/tablet header ---- */
-@media (min-width:600px) and (max-width:980px){
+@media (min-width:700px) and (max-width:980px){
 .v-cb .shell-top .top-r{display:contents}
 .v-cb .shell-top .brand{order:0;flex:0 0 140px}
 .v-cb .shell-top .pickup-chip{display:inline-flex;order:1;margin:0 auto;font-size:11.5px}
 .v-cb .shell-top .top-r .btn-sm{order:2}
 }
+
+/* ---- V5 COMBINED, one-row header on phones/tablets + menu button ---- */
+.cb-burger{display:none}
+@media (max-width:980px){
+.v-cb .shell-top{flex-wrap:nowrap;align-items:center;gap:12px;padding-top:12px;padding-bottom:12px}
+.v-cb .shell-top .top-mid{display:none}
+.v-cb .shell-top .top-r{margin-left:auto}
+.v-cb .cb-burger{order:3;flex:none;display:grid;place-content:center;gap:5px;width:44px;height:44px;padding:0;border-radius:12px;border:1px solid rgba(247,243,234,.35);background:transparent;cursor:pointer}
+.v-cb .cb-burger span{display:block;width:20px;height:2px;border-radius:2px;background:#f7f3ea;transition:transform 200ms ease,opacity 200ms ease}
+.v-cb .shell-top.cb-navopen .cb-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.v-cb .shell-top.cb-navopen .cb-burger span:nth-child(2){opacity:0}
+.v-cb .shell-top.cb-navopen .cb-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.v-cb .cb-burger:focus-visible{outline:2px solid #dfae42;outline-offset:2px}
+.v-cb .shell-top.cb-navopen .top-mid{display:flex;position:absolute;left:0;right:0;top:100%;z-index:70;flex-direction:column;align-items:stretch;gap:0;width:auto;margin:0;padding:6px 0 12px;background:rgba(20,18,15,.97);border-bottom:1px solid rgba(223,174,66,.28);box-shadow:0 18px 30px -18px rgba(0,0,0,.8)}
+.v-cb .shell-top.cb-navopen .top-mid a,.v-cb .shell-top.cb-navopen .top-mid a[data-goto=":reviews"]{display:block;min-height:0;padding:14px 24px;font-size:15px;letter-spacing:.14em;border-top:1px solid rgba(247,243,234,.08)}
+.v-cb .shell-top.cb-navopen .top-mid a[aria-current]{color:#dfae42}
+}
+@media (min-width:700px) and (max-width:980px){
+/* brand slot = pill + gap + menu button, so the address chip sits in the true centre */
+.v-cb .shell-top .brand{flex:0 0 196px}
+.v-cb .shell-top .top-r{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){.v-cb .cb-burger span{transition:none}}
 /* ---- V5 COMBINED, About view ---- */
 .v-cb .cb-afull{min-height:0}
 .v-cb .cb-afull .bg img{object-position:center 40%}
@@ -4975,7 +4998,7 @@ function renderComboContact() {
     <section class="cb-bold">
       <img class="cb-prop m1" src="${IMG.cone}" alt="" aria-hidden="true">
       <img class="cb-prop m2" src="${IMG.hammer}" alt="" aria-hidden="true">
-      <img class="cb-boldmascot" src="${IMG.mascot}" alt="The Under Construction Hot Dogs mascot, a hot dog in a hard hat giving a thumbs up">
+      <img class="cb-boldmascot" src="${IMG.mascot}" alt="" aria-hidden="true">
       <div class="bc-eyebrow">Our menu</div>
       <h2 class="cb-h2">Built Bold. <em>Not Basic</em></h2>
       <p class="cb-bintro">${MENU.tag}</p>
@@ -5554,6 +5577,7 @@ function wireStage() {
   wireTravelPath();
   wireSticky();
   if (typeof cbScrollUI === 'function') cbScrollUI();
+  if (typeof cbBurger === 'function') cbBurger();
   stage.querySelectorAll('.pills .pill').forEach(t => {
     t.addEventListener('click', () => {
       t.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', 'false'));
@@ -5664,6 +5688,27 @@ cbBar.className = 'cb-obar';
 cbBar.href = ORDER_URL; cbBar.target = '_blank'; cbBar.rel = 'noopener';
 cbBar.innerHTML = '<span class="cb-obar-t"><b>Order for Pickup</b><small>10 a.m. to 3 p.m., closed Thursdays</small></span><span class="cb-obar-i" aria-hidden="true">&rarr;</span>';
 document.body.appendChild(cbBar);
+/* Phone/tablet menu button: added to whichever header the current view rendered. */
+function cbBurger() {
+  const hdr = stage.querySelector('.stage-wrap.v-cb .shell-top');
+  if (!hdr || hdr.querySelector('.cb-burger')) return;
+  const nav = hdr.querySelector('.top-mid');
+  if (!nav) return;
+  if (!nav.id) nav.id = 'cb-mainnav';
+  const btn = document.createElement('button');
+  btn.type = 'button'; btn.className = 'cb-burger';
+  btn.setAttribute('aria-controls', nav.id); btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-label', 'Open menu');
+  btn.innerHTML = '<span></span><span></span><span></span>';
+  const setOpen = (open) => {
+    hdr.classList.toggle('cb-navopen', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+  btn.addEventListener('click', () => setOpen(!hdr.classList.contains('cb-navopen')));
+  nav.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
+  hdr.addEventListener('keydown', (e) => { if (e.key === 'Escape' && hdr.classList.contains('cb-navopen')) { setOpen(false); btn.focus(); } });
+  hdr.appendChild(btn);
+}
 function cbUnstick(wrap) {
   if (!wrap || !wrap.classList.contains('cb-stuck')) return;
   wrap.classList.remove('cb-stuck');
@@ -5675,7 +5720,7 @@ function cbScrollNow() {
   cbBar.hidden = !wrap;
   const y = window.scrollY || document.documentElement.scrollTop;
   if (wrap && y > 600) cbTop.setAttribute('data-show', ''); else cbTop.removeAttribute('data-show');
-  if (!wrap) return;
+  if (!wrap) { cbTop.style.setProperty('--cb-lift', '0px'); return; }
   /* lift the button above the footer once the footer is on screen, so it never covers the hours */
   const foot = wrap.querySelector('.shell-foot');
   const lift = foot ? Math.min(foot.offsetHeight, Math.max(0, innerHeight - foot.getBoundingClientRect().top)) : 0;
