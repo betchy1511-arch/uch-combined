@@ -2517,6 +2517,7 @@ img{display:block;max-width:100%}
 
 /* ---- V5 COMBINED, post layout: hero + right sidebar ---- */
 .v-cb .cb-phero .hero-h1{font-size:clamp(30px,4.6vw,64px);max-width:18ch;margin:14px auto 0}
+@media (min-width:1024px){.v-cb .cb-phero .hero-h1{max-width:none;white-space:nowrap;font-size:min(3.6vw,60px)}}
 .v-cb .cb-pcrumb{position:relative;z-index:4;display:flex;gap:10px;align-items:center;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(247,243,234,.7)}
 .v-cb .cb-pcrumb a{color:var(--gold);text-decoration:none;border-bottom:1.5px solid transparent}
 .v-cb .cb-pcrumb a:hover{border-bottom-color:var(--gold)}
@@ -4932,7 +4933,7 @@ const cbCatOf = slug => CB_CATS.find(c => c.posts.indexOf(slug) > -1);
 /* Words in each post title that take the gold accent in the hero. */
 /* The brat post's own image is a transparent cutout, so its hero uses a photo. */
 const CB_HEROBG = { 'hot-dog-vs-bratwurst': 'dogsWide' };
-const CB_HL = { 'what-is-a-chicago-style-hot-dog': 'Chicago-Style Hot Dog', 'hot-dog-vs-bratwurst': 'Bratwurst', 'what-is-a-ditka-dog': 'Ditka Dog' };
+const CB_HL = { 'what-is-a-chicago-style-hot-dog': 'Chicago-Style Hot Dog', 'hot-dog-vs-bratwurst': ['Hot Dog', 'Bratwurst'], 'what-is-a-ditka-dog': 'Ditka Dog' };
 function renderComboPost() {
   const slug = currentView.slice(5);
   const p = CB_POSTS.find(x => x.slug === slug);
@@ -4940,7 +4941,7 @@ function renderComboPost() {
   document.title = p.meta_title.replace(/&#8217;/g, "'") + ' | Under Construction Hot Dogs';
   const cat = cbCatOf(p.slug);
   const hl = CB_HL[p.slug];
-  const h1 = hl && p.title.indexOf(hl) > -1 ? p.title.replace(hl, `<b>${hl}</b>`) : p.title;
+  const h1 = [].concat(hl || []).reduce((t, w) => t.indexOf(w) > -1 ? t.replace(w, `<b>${w}</b>`) : t, p.title);
   const others = CB_POSTS.filter(x => x.slug !== p.slug);
   const fig = k => k ? `<figure class="cb-afig"><img src="${IMG[k]}" alt="${k === p.img ? p.img_alt : (k === 'cart' ? 'The Under Construction Hot Dogs cart with its canopy raised, letter board menu, and chips and drinks on the counter' : (MENU.dogs.find(d => d.img === k) || {}).alt || '')}" loading="lazy"></figure>` : '';
   return `
