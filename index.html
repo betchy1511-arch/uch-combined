@@ -2745,6 +2745,15 @@ img{display:block;max-width:100%}
 .v-cb .fullbleed{padding-top:132px}
 }
 @media (max-width:360px){.v-cb .shell-top{padding-left:14px;padding-right:14px;column-gap:8px}.v-cb .shell-top .btn-sm{padding:9px 10px;font-size:10px}}
+
+/* ---- V5 COMBINED, Order page ---- */
+.v-cb .cb-ohero .cb-amid{padding-top:40px;padding-bottom:64px}
+.v-cb .cb-ohero .hero-h1{margin-bottom:0}
+.v-cb .cb-oapp{position:relative;z-index:4;background:var(--cr);padding:40px 24px 56px;text-align:center;scroll-margin-top:90px}
+.v-cb .cb-oframe{display:block;width:100%;max-width:1180px;height:900px;margin:0 auto;border:1px solid rgba(20,18,15,.14);border-radius:18px;background:#fff9f1;box-shadow:0 22px 40px -28px rgba(20,18,15,.6)}
+.v-cb .cb-onote{margin:16px 0 0;font-size:14px;color:var(--ink-mute)}
+.v-cb .cb-onote a{color:var(--ink);font-weight:700}
+@media (max-width:980px){.v-cb .cb-oapp{padding:24px 12px 40px}.v-cb .cb-oframe{height:1100px;border-radius:14px}}
 /* ---- V5 COMBINED, About view ---- */
 .v-cb .cb-afull{min-height:0}
 .v-cb .cb-afull .bg img{object-position:center 40%}
@@ -5320,6 +5329,44 @@ function renderComboReviews() {
   </div>`;
 }
 
+/* V5 COMBINED, Order page: the client's live /order/ is its ezoo app in an iframe; same embed here. */
+const CB_EZOO = 'https://ezoo.app/underconstructionhotdogs?brand=111111&bg=fff9f1&fg=5b2c29&font=%22Instrument%20Sans%22%2C%20sans-serif';
+function renderComboOrder() {
+  document.title = 'Order for Pickup | Under Construction Hot Dogs';
+  const nav = cbNavBar(false);
+  return `
+  <div class="stage-wrap v-rc v-cb cb-orderpage">
+    <div class="fullbleed cb-afull cb-ohero">
+      <div class="bg" aria-hidden="true"><img src="${IMG.dogsWide}" alt=""></div>
+      ${nav}
+      <div class="rule" aria-hidden="true"></div>
+      <div class="stage-mid cb-amid">
+        <span class="rc-brandline"><img src="${IMG.hat}" alt="" aria-hidden="true">Order Online</span>
+        <h1 class="hero-h1">Order for <b>Pickup</b></h1>
+        <p class="cb-alede">Build your order below and pick it up at the cart out front of Lowe&#8217;s.</p>
+        ${pickupNote('rc-note')}
+      </div>
+      <div class="rc-foot-band"><div class="rc-hazard" aria-hidden="true"></div></div>
+    </div>
+    <section class="cb-oapp" id="order-app" aria-label="Online ordering">
+      <iframe class="cb-oframe" src="${CB_EZOO}" title="Under Construction Hot Dogs online ordering" loading="eager" allow="payment"></iframe>
+      <p class="cb-onote">Ordering not loading? <a href="${CB_EZOO}" target="_blank" rel="noopener">Open online ordering in a new tab ${ARROW}</a></p>
+    </section>
+    ${cbFindSection()}
+    <footer class="shell-foot" id="find">
+      <div>
+        <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-bottom:6px">Hours</div>
+        ${hoursGrid()}
+      </div>
+      <div style="letter-spacing:.12em;text-transform:uppercase;font-size:11px;color:#f7f3ea">1225 W U.S. Hwy 50</div>
+      <div style="text-align:right">
+        <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-bottom:6px">Out front at Lowe's</div>
+        <a class="foot-dir" href="${MAP_LINK}" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+    </footer>
+  </div>`;
+}
+
 const VARIANTS = [renderCombo];
 /* Combined menu view: The Cart's menu page with the Combined gold order buttons. */
 function renderComboMenu() {
@@ -5373,6 +5420,7 @@ function renderComboMenu() {
 const MENU_VARIANTS = [renderComboMenu];
 const ABOUT_VARIANTS = [renderComboAbout];
 const REVIEWS_VARIANTS = [renderComboReviews];
+const ORDER_VARIANTS = [renderComboOrder];
 /* Only Combined has a contact view; the four originals show their home. */
 const CONTACT_VARIANTS = [renderComboContact];
 const BLOG_VARIANTS = [renderComboBlog];
@@ -5626,6 +5674,7 @@ function show(i, push, view) {
   else if (prev !== current) currentView = 'home';
   const list = currentView === 'menu' ? MENU_VARIANTS
     : currentView === 'about' ? ABOUT_VARIANTS
+    : currentView === 'order' ? ORDER_VARIANTS
     : currentView === 'reviews' ? REVIEWS_VARIANTS
     : currentView === 'contact' ? CONTACT_VARIANTS
     : (currentView === 'blog' || currentView.indexOf('cat-') === 0) ? BLOG_VARIANTS
@@ -5734,7 +5783,7 @@ function cbUnstick(wrap) {
 }
 function cbScrollNow() {
   const wrap = stage.querySelector('.stage-wrap.v-cb');
-  cbBar.hidden = !wrap;
+  cbBar.hidden = !wrap || wrap.classList.contains('cb-orderpage');
   const y = window.scrollY || document.documentElement.scrollTop;
   if (wrap && y > 600) cbTop.setAttribute('data-show', ''); else cbTop.removeAttribute('data-show');
   if (!wrap) { cbTop.style.setProperty('--cb-lift', '0px'); return; }
@@ -5761,10 +5810,20 @@ window.addEventListener('scroll', cbScrollUI, { passive: true });
 /* on resize, unpin first so the next pass measures the header at its natural size */
 window.addEventListener('resize', () => { cbUnstick(stage.querySelector('.stage-wrap.v-cb')); cbScrollUI(); });
 
+/* Every Order for Pickup link on a Combined view opens the Order page in the same tab. The href stays the
+   real /order/ URL so it still works without JS or when opened in a new tab on purpose. */
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href]');
+  if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button === 1) return;
+  if (a.getAttribute('href') !== ORDER_URL && a.getAttribute('href') !== 'https://underconstructionhotdogs.com/order/') return;
+  if (!stage.querySelector('.stage-wrap.v-cb')) return;
+  e.preventDefault();
+  show(current, true, 'order');
+});
 const _bootURL = new URL(location.href);
 const start = parseInt(_bootURL.searchParams.get('v') || '1', 10) - 1;
 const _bootP = _bootURL.searchParams.get('p');
-const startView = (_bootP && /^(menu|about|contact|reviews|blog|post-[a-z0-9-]+|cat-[a-z0-9-]+)$/.test(_bootP)) ? _bootP : 'home';
+const startView = (_bootP && /^(menu|about|contact|reviews|order|blog|post-[a-z0-9-]+|cat-[a-z0-9-]+)$/.test(_bootP)) ? _bootP : 'home';
 show(Number.isFinite(start) ? start : 0, false, startView);
 requestAnimationFrame(() => picker.setAttribute('data-ready', ''));
 
