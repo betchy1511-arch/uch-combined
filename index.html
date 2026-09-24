@@ -2462,7 +2462,7 @@ img{display:block;max-width:100%}
 }
 
 /* Six nav items wrap on small phones; Reviews is a home-page anchor, so it drops there only */
-@media (max-width:460px){.v-cb .top-mid a[href$="#reviews"]{display:none}}
+@media (max-width:460px){.v-cb .top-mid a[data-goto=":reviews"]{display:none}}
 /* ---- V5 COMBINED, Blog ---- */
 .v-cb .cb-blogidx{position:relative;z-index:4;background:var(--cr);color:var(--ink);padding:78px 42px 86px;text-align:center}
 .v-cb .cb-blogidx .cb-h2{color:var(--ink)}
@@ -2570,6 +2570,33 @@ img{display:block;max-width:100%}
 @media (max-width:980px){
 .v-cb .cb-pwrap{grid-template-columns:1fr;gap:40px;padding:40px 20px 64px}
 .v-cb .cb-bgrid-few{grid-template-columns:1fr}
+}
+
+/* ---- V5 COMBINED, Reviews page ---- */
+.v-cb .cb-rwall{position:relative;z-index:4;background:var(--cr);color:var(--ink);padding:78px 42px 86px;text-align:center}
+.v-cb .cb-rwall .cb-h2,.v-cb .cb-rask .cb-h2{color:var(--ink)}
+.v-cb .cb-rwall .cb-h2 em,.v-cb .cb-rwall .bc-eyebrow,.v-cb .cb-rask .cb-h2 em,.v-cb .cb-rask .bc-eyebrow{color:var(--gold-tx)}
+.v-cb .cb-rwall .bc-eyebrow::before,.v-cb .cb-rwall .bc-eyebrow::after,.v-cb .cb-rask .bc-eyebrow::before,.v-cb .cb-rask .bc-eyebrow::after{background:rgba(125,90,15,.45)}
+.v-cb .cb-rcols{columns:3 300px;column-gap:24px;max-width:1120px;margin:40px auto 0;text-align:left}
+.v-cb .cb-rcols .cb-rcard{break-inside:avoid;margin:0 0 24px;display:inline-block;width:100%;box-sizing:border-box;padding:22px 24px 20px}
+.v-cb .cb-rcols .cb-rcard blockquote{font-size:15.5px;line-height:1.65}
+.v-cb .cb-rcols figcaption{display:flex;align-items:center;gap:12px;margin-top:4px}
+.v-cb .cb-rav{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--gold);font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:17px;letter-spacing:0}
+.v-cb .cb-rstats{position:relative;z-index:4;display:grid;grid-template-columns:repeat(3,minmax(0,220px));justify-content:center;gap:24px;background:var(--ink);color:var(--cream);padding:64px 42px 54px;text-align:center}
+.v-cb .cb-rstat b{display:block;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:clamp(46px,6vw,72px);line-height:1;color:var(--gold)}
+.v-cb .cb-rstat span{display:block;margin-top:10px;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(247,243,234,.82)}
+.v-cb .cb-rsrc{grid-column:1/-1;margin:14px 0 0;font-size:13px;color:rgba(247,243,234,.66)}
+.v-cb .cb-rask{position:relative;z-index:4;background:var(--cr2);color:var(--ink);padding:74px 42px 82px;text-align:center}
+.v-cb .cb-rask .cb-flede{max-width:52ch;margin:16px auto 0;font-size:17px;line-height:1.6;color:var(--ink-mute)}
+.v-cb .cb-rall{color:var(--ink);border-color:rgba(20,18,15,.55);background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
+.v-cb .cb-rall:hover{background:var(--ink);color:var(--cr);border-color:var(--ink)}
+.v-cb .cb-arevs .cb-rall{color:var(--cream);border-color:rgba(247,243,234,.55)}
+.v-cb .cb-arevs .cb-rall:hover{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+@media (max-width:980px){
+.v-cb .cb-rwall,.v-cb .cb-rask{padding:52px 20px 60px}
+.v-cb .cb-rcols{columns:1;max-width:460px}
+.v-cb .cb-rstats{grid-template-columns:repeat(3,1fr);gap:10px;padding:46px 16px 40px}
+.v-cb .cb-rstat span{font-size:10.5px;letter-spacing:.12em}
 }
 /* ---- V5 COMBINED, About view ---- */
 .v-cb .cb-afull{min-height:0}
@@ -4443,7 +4470,7 @@ function renderCombo() {
 
       <header class="shell-top">
         <div class="brand"><img src="${IMG.logo}" alt="Under Construction Hot Dogs"></div>
-        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home" aria-current="page">Home</a><a href="?p=menu" data-goto=":menu">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="?p=blog" data-goto=":blog">Blog</a><a href="#reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact">Contact</a></nav>
+        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home" aria-current="page">Home</a><a href="?p=menu" data-goto=":menu">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="?p=blog" data-goto=":blog">Blog</a><a href="?p=reviews" data-goto=":reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact">Contact</a></nav>
         <div class="top-r">
           <span class="pickup-chip">${ICON_PIN}<span><b>Pickup</b> out front of Lowe&#8217;s, U.S. 50</span></span>
           <a class="btn-solid btn-sm" href="https://underconstructionhotdogs.com/order/" target="_blank" rel="noopener">Order for Pickup</a>
@@ -4567,6 +4594,7 @@ function renderCombo() {
         </figure>`).join('')}
       </div>
       <p class="cb-rfoot"><span class="cb-st" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><b>4.9</b><span>Google rating</span><span class="vh">Rated 4.9 out of 5 on Google</span></p>
+      <div class="cb-arow cb-arow-c"><a class="btn-ghost cb-rall" href="?p=reviews" data-goto=":reviews">Read All Reviews ${ARROW}</a></div>
     </section>
 
     <section class="cb-why" id="why">
@@ -4639,7 +4667,7 @@ function renderComboAbout() {
       <div class="bg" aria-hidden="true"><img src="${IMG.cart}" alt=""></div>
       <header class="shell-top">
         <div class="brand"><img src="${IMG.logo}" alt="Under Construction Hot Dogs"></div>
-        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu">Menu</a><a href="${ABOUT_HREF}" data-goto=":about" aria-current="page">About</a><a href="?p=blog" data-goto=":blog">Blog</a><a href="#reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact">Contact</a></nav>
+        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu">Menu</a><a href="${ABOUT_HREF}" data-goto=":about" aria-current="page">About</a><a href="?p=blog" data-goto=":blog">Blog</a><a href="?p=reviews" data-goto=":reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact">Contact</a></nav>
         <div class="top-r">
           <span class="pickup-chip">${ICON_PIN}<span><b>Pickup</b> out front of Lowe&#8217;s, U.S. 50</span></span>
           <a class="btn-solid btn-sm" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup</a>
@@ -4720,7 +4748,7 @@ function renderComboAbout() {
         </figure>`).join('')}
       </div>
       <p class="cb-rfoot"><span class="cb-st" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><b>4.9</b><span>Google rating</span><span class="vh">Rated 4.9 out of 5 on Google</span></p>
-      <div class="cb-arow cb-arow-c"><a class="btn-solid" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup ${ARROW}</a></div>
+      <div class="cb-arow cb-arow-c"><a class="btn-solid" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup ${ARROW}</a><a class="btn-ghost cb-rall" href="?p=reviews" data-goto=":reviews">Read All Reviews ${ARROW}</a></div>
     </section>
 
     <section class="cb-find" id="find-us">
@@ -4775,7 +4803,7 @@ function renderComboContact() {
       <div class="bg" aria-hidden="true"><img src="${IMG.cart}" alt=""></div>
       <header class="shell-top">
         <div class="brand"><img src="${IMG.logo}" alt="Under Construction Hot Dogs"></div>
-        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="?p=blog" data-goto=":blog">Blog</a><a href="${HOME_HREF}#reviews" data-goto=":home#reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact" aria-current="page">Contact</a></nav>
+        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="?p=blog" data-goto=":blog">Blog</a><a href="?p=reviews" data-goto=":reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact" aria-current="page">Contact</a></nav>
         <div class="top-r">
           <span class="pickup-chip">${ICON_PIN}<span><b>Pickup</b> out front of Lowe&#8217;s, U.S. 50</span></span>
           <a class="btn-solid btn-sm" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup</a>
@@ -4867,7 +4895,7 @@ const CB_POSTS = [{"slug": "what-is-a-chicago-style-hot-dog", "title": "What Is 
 function cbNavBar(blogCur) {
   return `<header class="shell-top">
         <div class="brand"><img src="${IMG.logo}" alt="Under Construction Hot Dogs"></div>
-        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="?p=blog" data-goto=":blog"__BLOGCUR__>Blog</a><a href="${HOME_HREF}#reviews" data-goto=":home#reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact">Contact</a></nav>
+        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="?p=blog" data-goto=":blog"__BLOGCUR__>Blog</a><a href="?p=reviews" data-goto=":reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact">Contact</a></nav>
         <div class="top-r">
           <span class="pickup-chip">${ICON_PIN}<span><b>Pickup</b> out front of Lowe&#8217;s, U.S. 50</span></span>
           <a class="btn-solid btn-sm" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup</a>
@@ -5033,6 +5061,87 @@ function renderComboPost() {
   </div>`;
 }
 
+
+/* V5 COMBINED, Reviews page. Verbatim Google reviews, checked on the live listing
+   24 Sep 2026 (Luciano from the 07 Sep pull). Counts are as of that date. */
+const CB_REVIEWS = [
+  ['Sandy Mapes', 'If I could give more than 5 stars I would! Juan&#8217;s hot dogs are the best. We go even when we don&#8217;t need to go to lowes, their that good!!!! The world would be a better place if it had the kind of customer service and personality that the owner Juan&#8217;s has! Great variety of hot dogs, great price and excellent service! He&#8217;s there every day 10-3 except Thursdays.'],
+  ['Kurt Radzymski', 'Literally the best hotdogs I&#8217;ve had in my life. I have stopped about 5 times but every time I stop by Lowes I have existential thoughts about whether I have to get a hotdog or not. To cut the filler, I stop for the hotdog! GET A HOTDOG IT WILL NOT BE A MISTAKE!'],
+  ['Elizabeth Lucero', 'Chicago hot dogs have nothing on Juan&#8217;s Pueblo hot dogs! The buns are steamed and soft, the jumbo dog is so big and perfect. He has a variety of hot dogs and they&#8217;re all great! He plays music you can dance to, and the friendliest atmosphere and conversation! Stop by a try his hot dogs today! You won&#8217;t regret it! He&#8217;s there everyday 10-3 except Thursdays.'],
+  ['Bria Yatsko', 'I found this place by searching for &#8220;hot dogs&#8221; on google and was super happy to find this cute little cart! We got brats and dogs and Juan the owner was super friendly! Reasonable prices, great food and quick service. Can&#8217;t beat a good dog! We&#8217;ll come back for sure. If you&#8217;re shopping at Lowe&#8217;s, give this guy a try!'],
+  ['Kevin Murphy', '20 out 10 stars! Really delicious hotdogs and good prices!'],
+  ['Luciano', 'These are the best hot dogs we ever eaten!!! The owner Juan is such a class act guy too. Great food, excellent service, great price! When you go to Lowes make sure and stop and try his hot dogs. He has a variety. He&#8217;s there every day 10am to 3pm except Thursdays! God bless this wonderful business!'],
+  ['Brian Apodaca', 'Best Chicago dog i have had in Pueblo. You need to come see him at the Northside Lowe&#8217;s you won&#8217;t be disappointed. He has a great variety of dogs and brats with all the fixing with chips and cold drinks as well. Highly recommend you come get your hotdog fix now!!!'],
+  ['Janet Johnson', 'best hot dogs i ever had , brought few of my friends too , they also love it , come check it out , out side of lowes on highway 50']
+];
+function renderComboReviews() {
+  document.title = 'Reviews | Under Construction Hot Dogs';
+  const nav = cbNavBar(false).replace('data-goto=":reviews">Reviews</a>', 'data-goto=":reviews" aria-current="page">Reviews</a>');
+  return `
+  <div class="stage-wrap v-rc v-cb">
+    <div class="fullbleed cb-afull">
+      <div class="bg" aria-hidden="true"><img src="${IMG.cart}" alt=""></div>
+      ${nav}
+      <div class="rule" aria-hidden="true"></div>
+      <div class="stage-mid cb-amid">
+        <span class="rc-brandline"><img src="${IMG.hat}" alt="" aria-hidden="true">Google Reviews</span>
+        <h1 class="hero-h1">What Pueblo Says About <b>Our Dogs</b></h1>
+        <p class="cb-alede">Rated 4.9 out of 5 across 28 Google reviews, from people who stopped by the cart out front of Lowe&#8217;s.</p>
+        ${heroRating('rc-rate')}
+        <div class="hero-cta rc-secondary">
+          <a href="${ORDER_URL}" target="_blank" rel="noopener" class="btn-solid" data-primary-order>Order for Pickup ${ARROW}</a>
+          <a href="#all-reviews" class="btn-ghost">Read the Reviews</a>
+        </div>
+        ${pickupNote('rc-note')}
+      </div>
+      <div class="rc-foot-band">
+        <img class="rc-mascot" src="${IMG.mascot}" alt="The Under Construction Hot Dogs mascot, a hot dog in a hard hat giving a thumbs up">
+        <div class="rc-hazard" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="cb-marq" aria-hidden="true"><div class="cb-track"><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span></div></div>
+    <section class="cb-rwall" id="all-reviews">
+      <div class="bc-eyebrow">In their words</div>
+      <h2 class="cb-h2">Straight From <em>Google</em></h2>
+      <div class="cb-rcols">
+        ${CB_REVIEWS.map(r => `
+        <figure class="cb-rcard">
+          <span class="cb-st" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="vh">Rated 5 out of 5</span>
+          <blockquote>${r[1]}</blockquote>
+          <figcaption><span class="cb-rav" aria-hidden="true">${r[0].charAt(0)}</span><span>${r[0]}<i>Google review</i></span></figcaption>
+        </figure>`).join('')}
+      </div>
+    </section>
+    <section class="cb-rstats" aria-label="Google rating">
+      <div class="cb-rstat"><b>4.9</b><span>Google rating</span></div>
+      <div class="cb-rstat"><b>28</b><span>Google reviews</span></div>
+      <div class="cb-rstat"><b>27</b><span>Five-star reviews</span></div>
+      <p class="cb-rsrc">From the Under Construction Hot Dogs listing on Google Maps, September 2026.</p>
+    </section>
+    <section class="cb-rask">
+      <div class="bc-eyebrow">Been to the cart?</div>
+      <h2 class="cb-h2">Tell Pueblo <em>How It Went</em></h2>
+      <p class="cb-flede">A quick Google review helps the next hungry shopper find Juan&#8217;s cart out front of Lowe&#8217;s.</p>
+      <div class="cb-arow cb-arow-c">
+        <a class="btn-solid" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup ${ARROW}</a>
+        <a class="btn-ghost cb-rall" href="${MAP_LINK}" target="_blank" rel="noopener">Review Us on Google ${ARROW}</a>
+      </div>
+    </section>
+    <footer class="shell-foot" id="find">
+      <div>
+        <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-bottom:6px">Hours</div>
+        ${hoursGrid()}
+      </div>
+      <div style="letter-spacing:.12em;text-transform:uppercase;font-size:11px;color:#f7f3ea">1225 W U.S. Hwy 50</div>
+      <div style="text-align:right">
+        <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-bottom:6px">Out front at Lowe's</div>
+        <a class="foot-dir" href="${MAP_LINK}" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+    </footer>
+    ${stickyOrder()}
+  </div>`;
+}
+
 const VARIANTS = [renderCombo];
 /* Combined menu view: The Cart's menu page with the Combined gold order buttons. */
 function renderComboMenu() {
@@ -5040,7 +5149,7 @@ function renderComboMenu() {
   const nav = `<div class="cb-mbar">
       <header class="shell-top">
         <div class="brand"><img src="${IMG.logo}" alt="Under Construction Hot Dogs"></div>
-        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu" aria-current="page">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="?p=blog" data-goto=":blog">Blog</a><a href="${HOME_HREF}#reviews" data-goto=":home#reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact">Contact</a></nav>
+        <nav class="top-mid" aria-label="Main"><a href="${HOME_HREF}" data-goto=":home">Home</a><a href="?p=menu" data-goto=":menu" aria-current="page">Menu</a><a href="${ABOUT_HREF}" data-goto=":about">About</a><a href="?p=blog" data-goto=":blog">Blog</a><a href="?p=reviews" data-goto=":reviews">Reviews</a><a href="${CONTACT_HREF}" data-goto=":contact">Contact</a></nav>
         <div class="top-r">
           <span class="pickup-chip">${ICON_PIN}<span><b>Pickup</b> out front of Lowe&#8217;s, U.S. 50</span></span>
           <a class="btn-solid btn-sm" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup</a>
@@ -5055,6 +5164,7 @@ function renderComboMenu() {
 }
 const MENU_VARIANTS = [renderComboMenu];
 const ABOUT_VARIANTS = [renderComboAbout];
+const REVIEWS_VARIANTS = [renderComboReviews];
 /* Only Combined has a contact view; the four originals show their home. */
 const CONTACT_VARIANTS = [renderComboContact];
 const BLOG_VARIANTS = [renderComboBlog];
@@ -5306,6 +5416,7 @@ function show(i, push, view) {
   else if (prev !== current) currentView = 'home';
   const list = currentView === 'menu' ? MENU_VARIANTS
     : currentView === 'about' ? ABOUT_VARIANTS
+    : currentView === 'reviews' ? REVIEWS_VARIANTS
     : currentView === 'contact' ? CONTACT_VARIANTS
     : (currentView === 'blog' || currentView.indexOf('cat-') === 0) ? BLOG_VARIANTS
     : currentView.indexOf('post-') === 0 ? POST_VARIANTS : VARIANTS;
@@ -5364,7 +5475,7 @@ window.addEventListener('resize', moveHighlight);
 const _bootURL = new URL(location.href);
 const start = parseInt(_bootURL.searchParams.get('v') || '1', 10) - 1;
 const _bootP = _bootURL.searchParams.get('p');
-const startView = (_bootP && /^(menu|about|contact|blog|post-[a-z0-9-]+|cat-[a-z0-9-]+)$/.test(_bootP)) ? _bootP : 'home';
+const startView = (_bootP && /^(menu|about|contact|reviews|blog|post-[a-z0-9-]+|cat-[a-z0-9-]+)$/.test(_bootP)) ? _bootP : 'home';
 show(Number.isFinite(start) ? start : 0, false, startView);
 requestAnimationFrame(() => picker.setAttribute('data-ready', ''));
 
