@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&family=Baloo+2:wght@600;700;800&family=Instrument+Sans:wght@400;500;600;700&family=Lexend+Deca:wght@300;400;500;600&family=Hepta+Slab:wght@700;800;900&display=swap">
 
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 :root{--pk-black:#0d0d0d}
 html,body{margin:0;padding:0}
@@ -2671,6 +2672,16 @@ img{display:block;max-width:100%}
 @media (prefers-reduced-motion:reduce){.cb-totop,.cb-totop[data-show]{transition:none;transform:none}}
 /* menu page: "See the Menu" jump clears the fixed phone header */
 @media (max-width:980px){#menu-board{scroll-margin-top:110px}}
+
+/* ---- V5 COMBINED, phone/tablet Order banner in the header + Contact mascot ---- */
+@media (max-width:980px){
+.v-cb .shell-top .top-r{flex:1 1 auto;display:flex;justify-content:flex-end;min-width:0;margin-left:14px}
+.v-cb .shell-top .top-r .btn-sm{flex:1 1 auto;display:flex;align-items:center;justify-content:center;max-width:420px;min-height:50px;padding:0 16px;border-radius:14px;font-size:clamp(15px,4.4vw,19px);font-weight:800;letter-spacing:.07em;white-space:nowrap;box-shadow:0 10px 24px -12px rgba(0,0,0,.7)}
+.v-cb .sticky-order{display:none !important}
+.cb-totop{bottom:calc(20px + var(--cb-lift,0px))}
+}
+.v-cb .cb-boldmascot{position:absolute;z-index:2;left:5%;bottom:0;width:clamp(96px,10vw,150px);height:auto;pointer-events:none;filter:drop-shadow(0 16px 20px rgba(0,0,0,.5))}
+@media (max-width:980px){.v-cb .cb-boldmascot{position:static;display:block;width:96px;margin:0 auto 14px}}
 /* ---- V5 COMBINED, About view ---- */
 .v-cb .cb-afull{min-height:0}
 .v-cb .cb-afull .bg img{object-position:center 40%}
@@ -4598,6 +4609,28 @@ function cbWorkSection() {
       </div>
     </section>`;
 }
+function cbWhySection() {
+  return `
+    <section class="cb-why" id="why">
+      <img class="cb-prop w1" src="${IMG.cone}" alt="" aria-hidden="true">
+      <img class="cb-prop w2" src="${IMG.hammer}" alt="" aria-hidden="true">
+      <img class="cb-prop w3" src="${IMG.hat}" alt="" aria-hidden="true">
+      <img class="cb-prop w4" src="${IMG.cone}" alt="" aria-hidden="true">
+      <img class="cb-prop w5" src="${IMG.barrier}" alt="" aria-hidden="true">
+      <div class="bc-eyebrow">Why choose us</div>
+      <h2 class="cb-h2">Why Our Dogs Hit <em>Different</em></h2>
+      <div class="cb-wstage">
+        <div class="cb-tags l"><span class="cb-tag">Bold Flavors<small>Chili, relish, sport peppers</small></span><span class="cb-tag">Order Ahead<small>Online for pickup</small></span></div>
+        <div class="cb-wphoto">
+          <span class="cb-disc" aria-hidden="true"></span>
+          <img class="cb-wdog" src="${IMG.dogcut}" alt="${DOGCUT_ALT}">
+          <img class="cb-wmascot" src="${IMG.mascot}" alt="The Under Construction Hot Dogs mascot, a hot dog in a hard hat giving a thumbs up">
+        </div>
+        <div class="cb-tags r"><span class="cb-tag">Built and Served Fast<small>Open 10a to 3p</small></span><span class="cb-tag">Fully Loaded<small>Ditka Dog, a third pound</small></span></div>
+      </div>
+      <a class="btn-solid cb-whycta" href="https://underconstructionhotdogs.com/order/" target="_blank" rel="noopener">Order for Pickup ${ARROW}</a>
+    </section>`;
+}
 function renderCombo() {
   return `
   <div class="stage-wrap v-rc v-cb">
@@ -4697,25 +4730,7 @@ function renderCombo() {
       <div class="cb-arow cb-arow-c"><a class="btn-ghost cb-rall" href="?p=reviews" data-goto=":reviews">Read More Reviews ${ARROW}</a></div>
     </section>
 
-    <section class="cb-why" id="why">
-      <img class="cb-prop w1" src="${IMG.cone}" alt="" aria-hidden="true">
-      <img class="cb-prop w2" src="${IMG.hammer}" alt="" aria-hidden="true">
-      <img class="cb-prop w3" src="${IMG.hat}" alt="" aria-hidden="true">
-      <img class="cb-prop w4" src="${IMG.cone}" alt="" aria-hidden="true">
-      <img class="cb-prop w5" src="${IMG.barrier}" alt="" aria-hidden="true">
-      <div class="bc-eyebrow">Why choose us</div>
-      <h2 class="cb-h2">Why Our Dogs Hit <em>Different</em></h2>
-      <div class="cb-wstage">
-        <div class="cb-tags l"><span class="cb-tag">Bold Flavors<small>Chili, relish, sport peppers</small></span><span class="cb-tag">Order Ahead<small>Online for pickup</small></span></div>
-        <div class="cb-wphoto">
-          <span class="cb-disc" aria-hidden="true"></span>
-          <img class="cb-wdog" src="${IMG.dogcut}" alt="${DOGCUT_ALT}">
-          <img class="cb-wmascot" src="${IMG.mascot}" alt="The Under Construction Hot Dogs mascot, a hot dog in a hard hat giving a thumbs up">
-        </div>
-        <div class="cb-tags r"><span class="cb-tag">Built and Served Fast<small>Open 10a to 3p</small></span><span class="cb-tag">Fully Loaded<small>Ditka Dog, a third pound</small></span></div>
-      </div>
-      <a class="btn-solid cb-whycta" href="https://underconstructionhotdogs.com/order/" target="_blank" rel="noopener">Order for Pickup ${ARROW}</a>
-    </section>
+    ${cbWhySection()}
 
     ${cbFindSection()}
 
@@ -4791,21 +4806,7 @@ function renderComboAbout() {
       <div class="cb-facts">${CB_ABOUT_FACTS.map(f => `<div class="cb-fact"><b>${f[0]}</b><span>${f[1]}</span></div>`).join('')}</div>
     </section>
 
-    <section class="cb-bwhy" id="why">
-      <div class="bc-eyebrow">Why choose us</div>
-      <h2 class="cb-h2">Why Our Dogs Hit <em>Different</em></h2>
-      <p class="cb-bintro">${ABOUT.whyIntro}</p>
-      <div class="cb-bcards">
-        ${BENEFITS.slice(0, 4).map((b, i) => `
-        <article class="cb-bcard">
-          <span class="cb-bnum">0${i + 1}</span>
-          <h3>${b.k}</h3>
-          <span class="cb-bnote">${b.n}</span>
-          <p>${b.p}</p>
-        </article>`).join('')}
-      </div>
-      <div class="cb-arow cb-arow-c"><a class="btn-solid" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup ${ARROW}</a></div>
-    </section>
+    ${cbWhySection()}
 
     <section class="cb-owner">
       <div class="cb-owner-grid">
@@ -4934,8 +4935,9 @@ function renderComboContact() {
     <section class="cb-bold">
       <img class="cb-prop m1" src="${IMG.cone}" alt="" aria-hidden="true">
       <img class="cb-prop m2" src="${IMG.hammer}" alt="" aria-hidden="true">
+      <img class="cb-boldmascot" src="${IMG.mascot}" alt="The Under Construction Hot Dogs mascot, a hot dog in a hard hat giving a thumbs up">
       <div class="bc-eyebrow">Our menu</div>
-      <h2 class="cb-h2">Built Bold. <em>Not Basic.</em></h2>
+      <h2 class="cb-h2">Built Bold. <em>Not Basic</em></h2>
       <p class="cb-bintro">${MENU.tag}</p>
       <div class="cb-arow cb-arow-c">
         <a class="btn-solid" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup ${ARROW}</a>
