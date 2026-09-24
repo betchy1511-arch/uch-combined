@@ -2514,6 +2514,56 @@ img{display:block;max-width:100%}
 .v-cb .cb-tbl{font-size:14px}
 .v-cb .cb-tbl th,.v-cb .cb-tbl td{padding:9px 10px}
 }
+
+/* ---- V5 COMBINED, post layout: hero + right sidebar ---- */
+.v-cb .cb-phero .hero-h1{font-size:clamp(30px,4.6vw,64px);max-width:18ch;margin:14px auto 0}
+.v-cb .cb-pcrumb{position:relative;z-index:4;display:flex;gap:10px;align-items:center;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(247,243,234,.7)}
+.v-cb .cb-pcrumb a{color:var(--gold);text-decoration:none;border-bottom:1.5px solid transparent}
+.v-cb .cb-pcrumb a:hover{border-bottom-color:var(--gold)}
+.v-cb .cb-pupd{position:relative;z-index:4;margin:12px 0 26px;font-size:13px;color:rgba(247,243,234,.82);text-shadow:0 2px 8px rgba(20,18,15,.9)}
+.v-cb .cb-pwrap{position:relative;z-index:4;background:var(--cr);display:grid;grid-template-columns:minmax(0,760px) 330px;gap:56px;justify-content:center;padding:60px 32px 80px;scroll-margin-top:90px}
+.v-cb .cb-pwrap .cb-art{padding:0;background:none}
+@media (min-width:981px) and (min-height:1120px){.v-cb .cb-pside{position:sticky;top:24px}}
+.v-cb .cb-pside{align-self:start;display:flex;flex-direction:column;gap:18px;color:var(--ink)}
+.v-cb .cb-sbox{background:#fff;border:1px solid rgba(20,18,15,.12);border-radius:18px;padding:20px 22px;box-shadow:0 18px 30px -26px rgba(20,18,15,.6)}
+.v-cb .cb-stit{display:block;margin:6px 0 10px;font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:22px;line-height:1.2}
+.v-cb .cb-svisit{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.v-cb .cb-svisit .cb-lab{color:var(--gold)}
+.v-cb .cb-sline{display:flex;gap:10px;align-items:flex-start;margin:0 0 8px;font-size:14.5px;line-height:1.5;color:rgba(247,243,234,.88)}
+.v-cb .cb-sline svg{flex:none;width:16px;height:16px;margin-top:3px;color:var(--gold)}
+.v-cb .cb-sbtn{display:flex;justify-content:center;width:100%;box-sizing:border-box;margin:14px 0 12px}
+.v-cb .cb-sdir{display:inline-flex;gap:6px;align-items:center;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:1.5px solid rgba(223,174,66,.5)}
+.v-cb .cb-sdir:hover{border-bottom-color:var(--gold)}
+.v-cb .cb-smenu{padding:0;overflow:hidden}
+.v-cb .cb-smenu img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.v-cb .cb-smenu div{padding:16px 22px 20px}
+.v-cb .cb-smenu p{margin:0 0 14px;font-size:14.5px;line-height:1.5;color:var(--ink-mute)}
+.v-cb .cb-sghost{color:var(--ink);border-color:rgba(20,18,15,.55);background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
+.v-cb .cb-sghost:hover{background:var(--ink);color:var(--cr);border-color:var(--ink)}
+.v-cb .cb-scats{list-style:none;margin:10px 0 0;padding:0}
+.v-cb .cb-scats li{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(20,18,15,.1);font-size:15.5px}
+.v-cb .cb-scats li:last-child{border-bottom:0;padding-bottom:0}
+.v-cb .cb-scats a{color:var(--ink);font-weight:700;text-decoration:none}
+.v-cb .cb-scats a:hover,.v-cb .cb-scats a[aria-current]{text-decoration:underline;text-underline-offset:3px}
+.v-cb .cb-scats a[aria-current]{color:var(--gold-tx)}
+.v-cb .cb-scats span{min-width:28px;text-align:center;font-size:12px;font-weight:700;padding:3px 8px;border-radius:99px;background:var(--cr2);color:var(--gold-tx)}
+.v-cb .cb-smore{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:14px}
+.v-cb .cb-smore a{display:flex;gap:14px;align-items:center;color:var(--ink);text-decoration:none}
+.v-cb .cb-smore img{flex:none;width:78px;height:62px;object-fit:cover;border-radius:10px}
+.v-cb .cb-smore b{display:block;font-family:'Playfair Display',Georgia,serif;font-size:16.5px;line-height:1.25}
+.v-cb .cb-smore i{display:block;margin-top:4px;font-style:normal;font-size:12px;color:#6b6357}
+.v-cb .cb-smore a:hover b{text-decoration:underline;text-underline-offset:3px}
+.v-cb .cb-bcats{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:26px auto 0}
+.v-cb .cb-bcats a{padding:9px 18px;border-radius:99px;border:1.5px solid rgba(20,18,15,.3);color:var(--ink);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
+.v-cb .cb-bcats a:hover{border-color:var(--ink)}
+.v-cb .cb-bcats a[aria-current]{background:var(--ink);color:var(--cr);border-color:var(--ink)}
+.v-cb .cb-bgrid-few{grid-template-columns:repeat(auto-fit,minmax(0,360px));justify-content:center}
+.v-cb .cb-afig img{box-sizing:border-box}
+@media (max-width:1100px){.v-cb .cb-pwrap{grid-template-columns:minmax(0,1fr) 300px;gap:36px}}
+@media (max-width:980px){
+.v-cb .cb-pwrap{grid-template-columns:1fr;gap:40px;padding:40px 20px 64px}
+.v-cb .cb-bgrid-few{grid-template-columns:1fr}
+}
 /* ---- V5 COMBINED, About view ---- */
 .v-cb .cb-afull{min-height:0}
 .v-cb .cb-afull .bg img{object-position:center 40%}
@@ -4818,7 +4868,10 @@ function cbNavBar(blogCur) {
       </header>`.replace('__BLOGCUR__', blogCur ? ' aria-current="page"' : '');
 }
 function renderComboBlog() {
-  document.title = 'Blog | Under Construction Hot Dogs';
+  const cat = currentView.indexOf('cat-') === 0 ? CB_CATS.find(c => 'cat-' + c.slug === currentView) : null;
+  if (currentView.indexOf('cat-') === 0 && !cat) currentView = 'blog';
+  const list = cat ? CB_POSTS.filter(p => cat.posts.indexOf(p.slug) > -1) : CB_POSTS;
+  document.title = (cat ? cat.name + ' | Blog' : 'Blog') + ' | Under Construction Hot Dogs';
   return `
   <div class="stage-wrap v-rc v-cb">
     <div class="fullbleed cb-afull">
@@ -4841,13 +4894,14 @@ function renderComboBlog() {
       </div>
     </div>
     <section class="cb-blogidx">
-      <div class="bc-eyebrow">Latest posts</div>
-      <h2 class="cb-h2">From the <em>Board</em></h2>
-      <div class="cb-bgrid">
-        ${CB_POSTS.map(p => `
+      <div class="bc-eyebrow">${cat ? 'Category' : 'Latest posts'}</div>
+      <h2 class="cb-h2">${cat ? cat.name.replace(/ (\S+)$/, ' <em>$1</em>') : 'From the <em>Board</em>'}</h2>
+      <nav class="cb-bcats" aria-label="Blog categories"><a href="?p=blog" data-goto=":blog"${cat ? '' : ' aria-current="page"'}>All Posts</a>${CB_CATS.map(c => `<a href="?p=cat-${c.slug}" data-goto=":cat-${c.slug}"${c === cat ? ' aria-current="page"' : ''}>${c.name}</a>`).join('')}</nav>
+      <div class="cb-bgrid${list.length < 3 ? ' cb-bgrid-few' : ''}">
+        ${list.map(p => `
         <article class="cb-bpost">
           <a class="cb-bshot" href="?p=post-${p.slug}" data-goto=":post-${p.slug}" tabindex="-1" aria-hidden="true"><img src="${IMG[p.img]}" alt=""></a>
-          <span class="cb-bmeta">${p.mins} min read</span>
+          <span class="cb-bmeta">${cbCatOf(p.slug).name} / ${p.mins} min read</span>
           <h3><a href="?p=post-${p.slug}" data-goto=":post-${p.slug}">${p.title}</a></h3>
           <p>${p.excerpt}</p>
           <a class="btn-ghost cb-bread" href="?p=post-${p.slug}" data-goto=":post-${p.slug}" aria-label="Read the post: ${p.title.replace(/&#8217;/g, "'")}">Read the Post ${ARROW}</a>
@@ -4869,27 +4923,82 @@ function renderComboBlog() {
     ${stickyOrder()}
   </div>`;
 }
+/* Blog categories: one per post, defined here rather than in posts.py. */
+const CB_CATS = [
+  { slug: 'chicago-classics', name: 'Chicago Classics', posts: ['what-is-a-chicago-style-hot-dog', 'what-is-a-ditka-dog'] },
+  { slug: 'sausage-guides', name: 'Sausage Guides', posts: ['hot-dog-vs-bratwurst'] },
+];
+const cbCatOf = slug => CB_CATS.find(c => c.posts.indexOf(slug) > -1);
+/* Words in each post title that take the gold accent in the hero. */
+/* The brat post's own image is a transparent cutout, so its hero uses a photo. */
+const CB_HEROBG = { 'hot-dog-vs-bratwurst': 'dogsWide' };
+const CB_HL = { 'what-is-a-chicago-style-hot-dog': 'Chicago-Style Hot Dog', 'hot-dog-vs-bratwurst': 'Bratwurst', 'what-is-a-ditka-dog': 'Ditka Dog' };
 function renderComboPost() {
   const slug = currentView.slice(5);
   const p = CB_POSTS.find(x => x.slug === slug);
   if (!p) { currentView = 'blog'; return renderComboBlog(); }
   document.title = p.meta_title.replace(/&#8217;/g, "'") + ' | Under Construction Hot Dogs';
+  const cat = cbCatOf(p.slug);
+  const hl = CB_HL[p.slug];
+  const h1 = hl && p.title.indexOf(hl) > -1 ? p.title.replace(hl, `<b>${hl}</b>`) : p.title;
+  const others = CB_POSTS.filter(x => x.slug !== p.slug);
   const fig = k => k ? `<figure class="cb-afig"><img src="${IMG[k]}" alt="${k === p.img ? p.img_alt : (k === 'cart' ? 'The Under Construction Hot Dogs cart with its canopy raised, letter board menu, and chips and drinks on the counter' : (MENU.dogs.find(d => d.img === k) || {}).alt || '')}" loading="lazy"></figure>` : '';
   return `
   <div class="stage-wrap v-rc v-cb">
-    <div class="cb-mbar">${cbNavBar(true)}</div>
-    <article class="cb-art">
-      <nav class="cb-crumb" aria-label="Breadcrumb"><a href="?p=blog" data-goto=":blog">&larr; All posts</a></nav>
-      <h1>${p.title}</h1>
-      <p class="cb-upd">Last updated September 2026 / ${p.mins} min read</p>
-      <div class="cb-sum"><span class="cb-lab">Quick answer</span><p>${p.summary}</p></div>
-      <nav class="cb-toc" aria-label="In this post"><span class="cb-lab">In this post</span><ol>${p.sections.map(s => `<li><a href="#${s[0]}">${s[1]}</a></li>`).join('')}<li><a href="#faq">Frequently Asked Questions</a></li></ol></nav>
-      ${p.intro.map(x => `<p>${x}</p>`).join('')}
-      ${p.sections.map(s => `<h2 id="${s[0]}">${s[1]}</h2>${fig(s[3])}${s[2].map(x => x.charAt(0) === '<' ? x : `<p>${x}</p>`).join('')}`).join('')}
-      <aside class="cb-artcta"><div><b>Hungry yet?</b><span>Order ahead for pickup at the cart out front of Lowe&#8217;s, 10 a.m. to 3 p.m., closed Thursdays.</span></div><a class="btn-solid" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup ${ARROW}</a></aside>
-      <h2 id="faq">Frequently Asked Questions</h2>
-      ${p.faq.map(f => `<h3>${f[0]}</h3><p>${f[1]}</p>`).join('')}
-    </article>
+    <div class="fullbleed cb-afull cb-phero">
+      <div class="bg" aria-hidden="true"><img src="${IMG[CB_HEROBG[p.slug] || p.img]}" alt=""></div>
+      ${cbNavBar(true)}
+      <div class="rule" aria-hidden="true"></div>
+      <div class="stage-mid cb-amid">
+        <nav class="cb-pcrumb" aria-label="Breadcrumb"><a href="?p=blog" data-goto=":blog">Blog</a><span aria-hidden="true">/</span><a href="?p=cat-${cat.slug}" data-goto=":cat-${cat.slug}">${cat.name}</a></nav>
+        <h1 class="hero-h1">${h1}</h1>
+        <p class="cb-alede">${p.excerpt}</p>
+        <p class="cb-pupd">Last updated September 2026 / ${p.mins} min read</p>
+        <div class="hero-cta rc-secondary">
+          <a href="${ORDER_URL}" target="_blank" rel="noopener" class="btn-solid" data-primary-order>Order for Pickup ${ARROW}</a>
+          <a href="#post" class="btn-ghost">Read the Post</a>
+        </div>
+      </div>
+      <div class="rc-foot-band">
+        <img class="rc-mascot" src="${IMG.mascot}" alt="The Under Construction Hot Dogs mascot, a hot dog in a hard hat giving a thumbs up">
+        <div class="rc-hazard" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="cb-marq" aria-hidden="true"><div class="cb-track"><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span></div></div>
+    <div class="cb-pwrap" id="post">
+      <article class="cb-art">
+        <div class="cb-sum"><span class="cb-lab">Quick answer</span><p>${p.summary}</p></div>
+        <nav class="cb-toc" aria-label="In this post"><span class="cb-lab">In this post</span><ol>${p.sections.map(s => `<li><a href="#${s[0]}">${s[1]}</a></li>`).join('')}<li><a href="#faq">Frequently Asked Questions</a></li></ol></nav>
+        ${p.intro.map(x => `<p>${x}</p>`).join('')}
+        ${p.sections.map(s => `<h2 id="${s[0]}">${s[1]}</h2>${fig(s[3])}${s[2].map(x => x.charAt(0) === '<' ? x : `<p>${x}</p>`).join('')}`).join('')}
+        <aside class="cb-artcta"><div><b>Hungry yet?</b><span>Order ahead for pickup at the cart out front of Lowe&#8217;s, 10 a.m. to 3 p.m., closed Thursdays.</span></div><a class="btn-solid" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup ${ARROW}</a></aside>
+        <h2 id="faq">Frequently Asked Questions</h2>
+        ${p.faq.map(f => `<h3>${f[0]}</h3><p>${f[1]}</p>`).join('')}
+      </article>
+      <aside class="cb-pside" aria-label="More from Under Construction Hot Dogs">
+        <section class="cb-sbox cb-svisit">
+          <span class="cb-lab">Visit the cart</span>
+          <b class="cb-stit">Out Front of Lowe&#8217;s</b>
+          <p class="cb-sline">${ICON_PIN}<span>1225 W U.S. Hwy 50, Pueblo, CO</span></p>
+          <p class="cb-sline">${ICON_CLOCK}<span>${PICKUP_HOURS}</span></p>
+          <a class="btn-solid cb-sbtn" href="${ORDER_URL}" target="_blank" rel="noopener">Order for Pickup ${ARROW}</a>
+          <a class="cb-sdir" href="${MAP_LINK}" target="_blank" rel="noopener">Get Directions ${ARROW}</a>
+        </section>
+        <section class="cb-sbox cb-smenu">
+          <img src="${IMG.dogHero}" alt="" loading="lazy">
+          <div><b class="cb-stit">Hungry for More?</b><p>Six dogs on the board, plus chips and drinks.</p>
+          <a class="btn-ghost cb-sghost" href="?p=menu" data-goto=":menu">See the Full Menu ${ARROW}</a></div>
+        </section>
+        <section class="cb-sbox">
+          <span class="cb-lab">Categories</span>
+          <ul class="cb-scats">${CB_CATS.map(c => `<li><a href="?p=cat-${c.slug}" data-goto=":cat-${c.slug}"${c === cat ? ' aria-current="true"' : ''}>${c.name}</a><span>${c.posts.length}</span></li>`).join('')}</ul>
+        </section>
+        <section class="cb-sbox">
+          <span class="cb-lab">More from the blog</span>
+          <ul class="cb-smore">${others.map(o => `<li><a href="?p=post-${o.slug}" data-goto=":post-${o.slug}"><img src="${IMG[o.img]}" alt="" loading="lazy"><span><b>${o.title}</b><i>${o.mins} min read</i></span></a></li>`).join('')}</ul>
+        </section>
+      </aside>
+    </div>
     <footer class="shell-foot" id="find">
       <div>
         <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-bottom:6px">Hours</div>
@@ -5179,7 +5288,7 @@ function show(i, push, view) {
   const list = currentView === 'menu' ? MENU_VARIANTS
     : currentView === 'about' ? ABOUT_VARIANTS
     : currentView === 'contact' ? CONTACT_VARIANTS
-    : currentView === 'blog' ? BLOG_VARIANTS
+    : (currentView === 'blog' || currentView.indexOf('cat-') === 0) ? BLOG_VARIANTS
     : currentView.indexOf('post-') === 0 ? POST_VARIANTS : VARIANTS;
   document.title = 'Under Construction Hot Dogs';
   stage.innerHTML = list[current]();
@@ -5235,7 +5344,7 @@ window.addEventListener('resize', moveHighlight);
 const _bootURL = new URL(location.href);
 const start = parseInt(_bootURL.searchParams.get('v') || '1', 10) - 1;
 const _bootP = _bootURL.searchParams.get('p');
-const startView = (_bootP && /^(menu|about|contact|blog|post-[a-z0-9-]+)$/.test(_bootP)) ? _bootP : 'home';
+const startView = (_bootP && /^(menu|about|contact|blog|post-[a-z0-9-]+|cat-[a-z0-9-]+)$/.test(_bootP)) ? _bootP : 'home';
 show(Number.isFinite(start) ? start : 0, false, startView);
 requestAnimationFrame(() => picker.setAttribute('data-ready', ''));
 
