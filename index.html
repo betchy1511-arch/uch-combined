@@ -2698,6 +2698,13 @@ img{display:block;max-width:100%}
 .stage-wrap.v-cb{padding-bottom:84px}
 .cb-totop{bottom:calc(94px + var(--cb-lift,0px))}
 }
+/* ---- V5 COMBINED, address chip in the phone/tablet header ---- */
+@media (min-width:600px) and (max-width:980px){
+.v-cb .shell-top .top-r{display:contents}
+.v-cb .shell-top .brand{order:0;flex:0 0 140px}
+.v-cb .shell-top .pickup-chip{display:inline-flex;order:1;margin:0 auto;font-size:11.5px}
+.v-cb .shell-top .top-r .btn-sm{order:2}
+}
 /* ---- V5 COMBINED, About view ---- */
 .v-cb .cb-afull{min-height:0}
 .v-cb .cb-afull .bg img{object-position:center 40%}
