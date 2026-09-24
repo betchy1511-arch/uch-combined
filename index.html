@@ -4459,6 +4459,52 @@ const CB_MENU_BASE = [
 ];
 const cbMenu = () => CB_MENU_BASE.map(m => Object.assign({}, MENU.dogs.find(d => d.n === m.n), m));
 
+/* Homepage menu and Find Us sections, shared with the Reviews page so they cannot drift. */
+function cbMenuSection() { return `
+    <section class="cb-menu" id="menu">
+      <img class="cb-prop m1" src="${IMG.hat}" alt="" aria-hidden="true">
+      <img class="cb-prop m2" src="${IMG.hammer}" alt="" aria-hidden="true">
+      <div class="bc-eyebrow">From the board</div>
+      <h2 class="cb-h2">Fully Loaded, <em>Built Fresh</em></h2>
+      <p class="cb-sub">Six favorites from the board, each with its price. The Brat, the Spicy Link, sides and drinks are on the full menu.</p>
+      <div class="cb-cards">
+        ${cbMenu().map(m => `
+        <article class="cb-card">
+          <div class="cb-shot"><img src="${IMG[m.img]}" alt="${m.alt}"></div>
+          <div class="cb-head"><h3>${m.n}</h3><span class="cb-price">${m.p}</span></div>
+          <p class="cb-desc">${m.d}</p>
+          <div class="cb-qd">
+            <span class="cb-lab">Quick details</span>
+            <ul>${m.q.map(q => `<li>${q}</li>`).join('')}</ul>
+          </div>
+          <a class="cb-order" href="https://underconstructionhotdogs.com/order/" target="_blank" rel="noopener" aria-label="Order for Pickup, ${m.n}">Order for Pickup ${ARROW}</a>
+        </article>`).join('')}
+      </div>
+      <div class="cb-menufoot">
+        <a class="btn-ghost" href="?p=menu" data-goto=":menu">See the Full Menu</a>
+      </div>
+      ${handoffNote('cb-handoff')}
+    </section>`; }
+function cbFindSection() { return `
+    <section class="cb-find" id="find-us">
+      <div class="cb-fgrid">
+        <div class="cb-ftext">
+          <div class="bc-eyebrow">Find us</div>
+          <h2 class="cb-h2">Pull In, Grab a <em>Dog</em></h2>
+          <p class="cb-flede">We&#8217;re serving hot dogs where the action is. Swing by, grab a bite, and get back to building your day.</p>
+          <dl class="fu-facts">${fuFacts(false)}</dl>
+          <div class="cb-fctas">
+            <a class="btn-solid" href="https://underconstructionhotdogs.com/order/" target="_blank" rel="noopener">Order for Pickup ${ARROW}</a>
+            <a class="btn-ghost" href="${MAP_LINK}" target="_blank" rel="noopener">Get Directions ${ARROW}</a>
+          </div>
+        </div>
+        <div class="cb-mapwrap">
+          <div class="cb-map">${fuMap()}</div>
+          <img class="cb-barrier" src="${IMG.barrier}" alt="" aria-hidden="true">
+        </div>
+      </div>
+    </section>`; }
+
 function renderCombo() {
   return `
   <div class="stage-wrap v-rc v-cb">
@@ -4523,30 +4569,7 @@ function renderCombo() {
 
     <div class="cb-marq" aria-hidden="true"><div class="cb-track"><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span></div></div>
 
-    <section class="cb-menu" id="menu">
-      <img class="cb-prop m1" src="${IMG.hat}" alt="" aria-hidden="true">
-      <img class="cb-prop m2" src="${IMG.hammer}" alt="" aria-hidden="true">
-      <div class="bc-eyebrow">From the board</div>
-      <h2 class="cb-h2">Fully Loaded, <em>Built Fresh</em></h2>
-      <p class="cb-sub">Six favorites from the board, each with its price. The Brat, the Spicy Link, sides and drinks are on the full menu.</p>
-      <div class="cb-cards">
-        ${cbMenu().map(m => `
-        <article class="cb-card">
-          <div class="cb-shot"><img src="${IMG[m.img]}" alt="${m.alt}"></div>
-          <div class="cb-head"><h3>${m.n}</h3><span class="cb-price">${m.p}</span></div>
-          <p class="cb-desc">${m.d}</p>
-          <div class="cb-qd">
-            <span class="cb-lab">Quick details</span>
-            <ul>${m.q.map(q => `<li>${q}</li>`).join('')}</ul>
-          </div>
-          <a class="cb-order" href="https://underconstructionhotdogs.com/order/" target="_blank" rel="noopener" aria-label="Order for Pickup, ${m.n}">Order for Pickup ${ARROW}</a>
-        </article>`).join('')}
-      </div>
-      <div class="cb-menufoot">
-        <a class="btn-ghost" href="?p=menu" data-goto=":menu">See the Full Menu</a>
-      </div>
-      ${handoffNote('cb-handoff')}
-    </section>
+    ${cbMenuSection()}
 
     <section class="cb-work">
       <div class="bp-travel">
@@ -4617,24 +4640,7 @@ function renderCombo() {
       <a class="btn-solid cb-whycta" href="https://underconstructionhotdogs.com/order/" target="_blank" rel="noopener">Order for Pickup ${ARROW}</a>
     </section>
 
-    <section class="cb-find" id="find-us">
-      <div class="cb-fgrid">
-        <div class="cb-ftext">
-          <div class="bc-eyebrow">Find us</div>
-          <h2 class="cb-h2">Pull In, Grab a <em>Dog</em></h2>
-          <p class="cb-flede">We&#8217;re serving hot dogs where the action is. Swing by, grab a bite, and get back to building your day.</p>
-          <dl class="fu-facts">${fuFacts(false)}</dl>
-          <div class="cb-fctas">
-            <a class="btn-solid" href="https://underconstructionhotdogs.com/order/" target="_blank" rel="noopener">Order for Pickup ${ARROW}</a>
-            <a class="btn-ghost" href="${MAP_LINK}" target="_blank" rel="noopener">Get Directions ${ARROW}</a>
-          </div>
-        </div>
-        <div class="cb-mapwrap">
-          <div class="cb-map">${fuMap()}</div>
-          <img class="cb-barrier" src="${IMG.barrier}" alt="" aria-hidden="true">
-        </div>
-      </div>
-    </section>
+    ${cbFindSection()}
 
     <footer class="shell-foot" id="find">
       <div>
@@ -5100,15 +5106,15 @@ function renderComboReviews() {
       </div>
     </div>
     <div class="cb-marq" aria-hidden="true"><div class="cb-track"><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span><span>Built Bold <i>&#10033;</i> Served Fast <i>&#10033;</i> Gone Quick <i>&#10033;</i> Vienna Beef <i>&#10033;</i> Poppy Seed Buns <i>&#10033;</i> Built Fresh Daily <i>&#10033;</i></span></div></div>
-    <section class="cb-rwall" id="all-reviews">
+    <section class="cb-revs" id="all-reviews">
       <div class="bc-eyebrow">In their words</div>
       <h2 class="cb-h2">Straight From <em>Google</em></h2>
-      <div class="cb-rcols">
+      <div class="cb-rgrid">
         ${CB_REVIEWS.map(r => `
         <figure class="cb-rcard">
           <span class="cb-st" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="vh">Rated 5 out of 5</span>
           <blockquote>${r[1]}</blockquote>
-          <figcaption><span class="cb-rav" aria-hidden="true">${r[0].charAt(0)}</span><span>${r[0]}<i>Google review</i></span></figcaption>
+          <figcaption>${r[0]}<i>Google review</i></figcaption>
         </figure>`).join('')}
       </div>
     </section>
@@ -5118,6 +5124,7 @@ function renderComboReviews() {
       <div class="cb-rstat"><b>27</b><span>Five-star reviews</span></div>
       <p class="cb-rsrc">From the Under Construction Hot Dogs listing on Google Maps, September 2026.</p>
     </section>
+    ${cbMenuSection()}
     <section class="cb-rask">
       <div class="bc-eyebrow">Been to the cart?</div>
       <h2 class="cb-h2">Tell Pueblo <em>How It Went</em></h2>
@@ -5127,6 +5134,7 @@ function renderComboReviews() {
         <a class="btn-ghost cb-rall" href="${MAP_LINK}" target="_blank" rel="noopener">Review Us on Google ${ARROW}</a>
       </div>
     </section>
+    ${cbFindSection()}
     <footer class="shell-foot" id="find">
       <div>
         <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-bottom:6px">Hours</div>
